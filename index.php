@@ -9,9 +9,156 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title></title>
     </head>
-    <body>
-        <?php
-        // put your code here
-        ?>
+    <body background="./image/gocce.jpg" style="background-attachment:fixed; background-size: 100% 100%;">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+    <div class="container" >    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Accedi</div>
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            
+                        <form id="loginform" class="form-horizontal" role="form" method="POST" action="login.php">
+                                    
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="login-username" type="email" class="form-control" name="email" value="" placeholder="email">                                        
+                                    </div>
+                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                                    </div>
+                                                                   
+                            <div class="input-group">
+                                      <div class="checkbox">
+                                        <label>
+                                          <input id="login-remember" type="checkbox" name="remember" value="1"> Ricordami
+                                        </label>
+                                      </div>
+                                    </div>
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                       <button id="btn-login" type="submit" class="btn btn-success"><i class="icon-hand-right"></i>Login</button> 
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-12 control">
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                            Non hai un account? 
+                                        <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                            Registrati qui
+                                        </a>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </form>     
+
+                        </div>                     
+                    </div>  
+        </div>
+        <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="panel-title">Registrazione</div>
+                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Accedi</a></div>
+                        </div>  
+                        <div class="panel-body" >
+                            <form id="signupform" class="form-horizontal" role="form" action="iscrizione.php" method="POST" enctype="multipart/form-data">
+                                
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <p>Error:</p>
+                                    <span></span>
+                                </div>
+                                
+                              
+                                <div class="form-group">
+                                    <label for="nome" class="col-md-3 control-label">Nome</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="nome" placeholder="Il tuo nome">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cognome" class="col-md-3 control-label">Cognome</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="cognome" placeholder="Il tuo cognome">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="col-md-3 control-label">Email</label>
+                                    <div class="col-md-9">
+                                        <input type="email" class="form-control" name="email" placeholder="La tua email">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="pwd" class="col-md-3 control-label">Password</label>
+                                    <div class="col-md-9">
+                                        <input type="password" class="form-control" name="pwd" placeholder="Password">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="pwd2" class="col-md-3 control-label">Conferma password</label>
+                                    <div class="col-md-9">
+                                        <input type="password" class="form-control" name="pwd2" placeholder="Conferma la password">
+                                    </div>
+                                </div>
+                                    
+                                
+                                 <div class="form-group">
+                                    <label for="sesso" class="col-md-3 control-label">Sesso</label>
+                                    <div class="col-md-9">
+                                    <select class="form-control" name="sesso">
+                                        <option>Maschio</option>
+                                        <option>Femmina</option>
+                                      </select>
+                                    </div>
+                                </div>
+                                
+                               
+                                 <div class="form-group">
+                                    <label for="matricola" class="col-md-3 control-label">Ente di ricerca</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="matricola" placeholder="Inserisci l'ente di ricerca di appartenenza">
+                                    </div>
+                                 </div>
+                                
+                                <div class="form-group">
+                                    <label for="città" class="col-md-3 control-label">Città</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="città" placeholder="ad esempio Roma, Milano, Perugia">
+                                    </div>
+                                </div>
+                                
+                                    <div class="col-md-9" style="margin-top: 20px; margin-left: 40px;">
+                                        <strong>Inserisci la foto profilo: </strong><input name="userfile" type="file" accept="image/*"></br>
+                                    </div>
+                                    
+                                <div class="form-group">
+                                    <!-- Button -->                                        
+                                    <div class="col-md-offset-3 col-md-9" style="margin-top:20px;">
+                                        <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i>Iscriviti</button> 
+                                    </div>
+                                </div>
+      
+                            </form>
+                         </div>
+                    </div>
+                
+         </div> 
+    </div>
     </body>
 </html>
+
