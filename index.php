@@ -76,8 +76,8 @@ and open the template in the editor.
                         <div class="panel-body" >
                             <form id="signupform" class="form-horizontal" role="form" action="iscrizione.php" method="POST" enctype="multipart/form-data">
                                 
-                                <div id="signupalert" style="display:none" class="alert alert-danger">
-                                    <p>Error:</p>
+                                <div id="signupalert" style="display:none;" class="alert alert-danger">
+                                    <p>Errore</p>
                                     <span></span>
                                 </div>
                                 
@@ -129,9 +129,9 @@ and open the template in the editor.
                                 
                                
                                  <div class="form-group">
-                                    <label for="matricola" class="col-md-3 control-label">Ente di ricerca</label>
+                                    <label for="ente" class="col-md-3 control-label">Ente di ricerca</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="matricola" placeholder="Inserisci l'ente di ricerca di appartenenza">
+                                        <input type="text" class="form-control" name="ente" placeholder="Inserisci l'ente di ricerca di appartenenza">
                                     </div>
                                  </div>
                                 
