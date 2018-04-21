@@ -12,7 +12,7 @@ and open the template in the editor.
     <body background="./image/gocce.jpg" style="background-attachment:fixed; background-size: 100% 100%;">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-
+        <script src="miojavascript.js"></script>
     <div class="container" >    
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
             <div class="panel panel-info" >
@@ -73,46 +73,45 @@ and open the template in the editor.
                             <div class="panel-title">Registrazione</div>
                             <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Accedi</a></div>
                         </div>  
-                        <div class="panel-body" >
-                            <form id="signupform" class="form-horizontal" role="form" action="iscrizione.php" method="POST" enctype="multipart/form-data">
+                        <div class="panel-body">
+                            <form id="signupform" class="form-horizontal" role="form" action="iscrizione.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
                                 
                                 <div id="signupalert" style="display:none;" class="alert alert-danger">
-                                    <p>Errore</p>
-                                    <span></span>
+                                    <span id="error"></span>
                                 </div>
                                 
                               
-                                <div class="form-group">
+                                <div class="form-group" style="margin-top: 20px;">
                                     <label for="nome" class="col-md-3 control-label">Nome</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="nome" placeholder="Il tuo nome">
+                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Il tuo nome" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="cognome" class="col-md-3 control-label">Cognome</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="cognome" placeholder="Il tuo cognome">
+                                        <input type="text" class="form-control" name="cognome" placeholder="Il tuo cognome" required>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="email" class="col-md-3 control-label">Email</label>
                                     <div class="col-md-9">
-                                        <input type="email" class="form-control" name="email" placeholder="La tua email">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="La tua email" required>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="pwd" class="col-md-3 control-label">Password</label>
                                     <div class="col-md-9">
-                                        <input type="password" class="form-control" name="pwd" placeholder="Password">
+                                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password" required>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="pwd2" class="col-md-3 control-label">Conferma password</label>
                                     <div class="col-md-9">
-                                        <input type="password" class="form-control" name="pwd2" placeholder="Conferma la password">
+                                        <input type="password" class="form-control" id="pwd2" name="pwd2" placeholder="Conferma la password" required>
                                     </div>
                                 </div>
                                     
@@ -120,7 +119,7 @@ and open the template in the editor.
                                  <div class="form-group">
                                     <label for="sesso" class="col-md-3 control-label">Sesso</label>
                                     <div class="col-md-9">
-                                    <select class="form-control" name="sesso">
+                                    <select class="form-control" name="sesso" required>
                                         <option>Maschio</option>
                                         <option>Femmina</option>
                                       </select>
@@ -131,14 +130,14 @@ and open the template in the editor.
                                  <div class="form-group">
                                     <label for="ente" class="col-md-3 control-label">Ente di ricerca</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="ente" placeholder="Inserisci l'ente di ricerca di appartenenza">
+                                        <input type="text" class="form-control" name="ente" placeholder="Inserisci l'ente di ricerca di appartenenza" required>
                                     </div>
                                  </div>
                                 
                                 <div class="form-group">
                                     <label for="città" class="col-md-3 control-label">Città</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="città" placeholder="ad esempio Roma, Milano, Perugia">
+                                        <input type="text" class="form-control" name="città" placeholder="ad esempio Roma, Milano, Perugia" required>
                                     </div>
                                 </div>
                                 
