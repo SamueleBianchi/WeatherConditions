@@ -42,7 +42,36 @@ if ((move_uploaded_file($userfile_tmp,"./foto/".$filemat))&&$pwd==$pwd2){
             $query->bindParam(':fotoProfilo', $filemat, PDO::PARAM_STR, 30);
             try{
                 $query->execute();
-                $out="Iscrizione avvenuta con successo";
+                $html='<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body background="./image/gocce.jpg" style="background-attachment:fixed; background-size: 100% 100%;">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <div class="container">    
+        <div id="signupsuccess" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Iscrizione avvenuta con successo</div>
+                        
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body">
+                        <div class="alert alert-success" role="alert">
+                        Iscrizione avvenuta con successo<br>
+                        </div>
+                        <a href="index.php">Ritorna alla pagina di login</a>
+                        </div> 
+                        
+                    </div>  
+            </div>
+    </div>
+    </body>
+    </html>';
+
+echo($html);
             } catch (Exception $ex) {
                 echo $ex->getMessage();
             }

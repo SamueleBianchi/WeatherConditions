@@ -4,6 +4,12 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+session_start();
+if(isset($_SESSION['email'])){
+     header('Location: homepage.php');
+     exit();
+}?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -19,11 +25,11 @@ and open the template in the editor.
                     <div class="panel-heading">
                         <div class="panel-title">Accedi</div>
                     </div>     
-
+                
                     <div style="padding-top:30px" class="panel-body" >
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                             
-                        <form id="loginform" class="form-horizontal" role="form" method="POST" action="login.php">
+                        <form id="loginform" class="form-horizontal" role="form" method="POST" action="accesso.php">
                                     
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -160,4 +166,3 @@ and open the template in the editor.
     </div>
     </body>
 </html>
-
