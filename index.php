@@ -18,27 +18,32 @@ if(isset($_SESSION['email'])){
     <body background="./image/gocce.jpg" style="background-attachment:fixed; background-size: 100% 100%;">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
         <script src="miojavascript.js"></script>
     <div class="container" >    
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
             <div class="panel panel-info" >
-                    <div class="panel-heading">
-                        <div class="panel-title">Accedi</div>
+                <div id="accesso" class="panel-heading">
+                        <div id="accesso_title" class="panel-title">Accedi</div>
                     </div>     
                 
                     <div style="padding-top:30px" class="panel-body" >
-                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                        
                             
-                        <form id="loginform" class="form-horizontal" role="form" method="POST" action="accesso.php">
+                        <form id="loginform" class="form-horizontal" role="form" method="POST" action="accesso.php" onsubmit="return validateAccess()">
+                            
+                           <div id="log" style="display:none;" class="alert alert-danger">
+                                    <span id="errore_accesso"></span>
+                                </div>
                                     
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input id="login-username" type="email" class="form-control" name="email" value="" placeholder="email">                                        
+                                        <input id="login-username" type="email" class="form-control" name="email" value="" placeholder="email" required="true">                                        
                                     </div>
                                 
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password" required="true">
                                     </div>
                                                                    
                             <div class="input-group">
@@ -60,9 +65,9 @@ if(isset($_SESSION['email'])){
 
                                 <div class="form-group">
                                     <div class="col-md-12 control">
-                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                        <div id="no_account">
                                             Non hai un account? 
-                                        <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                        <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').slideDown('slow')">
                                             Registrati qui
                                         </a>
                                         </div>
@@ -75,9 +80,9 @@ if(isset($_SESSION['email'])){
         </div>
         <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <div class="panel-title">Registrazione</div>
-                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Accedi</a></div>
+                        <div id="registrazione" class="panel-heading">
+                            <div class="panel-title" style="color: white;">Registrazione</div>
+                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a style="color: white;" id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').slideDown('slow')">Accedi</a></div>
                         </div>  
                         <div class="panel-body">
                             <form id="signupform" class="form-horizontal" role="form" action="iscrizione.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
@@ -147,7 +152,7 @@ if(isset($_SESSION['email'])){
                                     </div>
                                 </div>
                                 
-                                    <div class="col-md-9" style="margin-top: 20px; margin-left: 40px;">
+                                    <div id="foto_profilo" class="col-md-9">
                                         <strong>Inserisci la foto profilo: </strong><input name="userfile" type="file" accept="image/*"></br>
                                     </div>
                                     

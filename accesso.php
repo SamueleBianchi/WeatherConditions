@@ -21,6 +21,5 @@ $num = $risultato->rowCount();
 if($num=='1'){
     session_start();
     $_SESSION['email'] = $email;
-    header("Location: homepage.php");
-    
+    header("Location: homepage.php");   
 }

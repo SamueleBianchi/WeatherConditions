@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26-apr-2018, 9.49.40
+    Author     : Samuele
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#accesso{
+    background-color: #7386D5;
+}
+
+#accesso_title{
+    color: white;
+}
+
+#no_account{
+    border-top: 1px solid#888; 
+    padding-top:15px; 
+    font-size:85%
+}
+#registrazione{
+    background-color: #7386D5;
+}
+#foto_profilo{
+    margin-top: 20px; 
+    margin-left: 40px;
+}
