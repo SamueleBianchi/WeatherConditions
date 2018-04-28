@@ -18,7 +18,7 @@ if(isset($_SESSION['email'])){
     <body background="./image/gocce.jpg" style="background-attachment:fixed; background-size: 100% 100%;">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./stili/style.css">
         <script src="miojavascript.js"></script>
     <div class="container" >    
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
