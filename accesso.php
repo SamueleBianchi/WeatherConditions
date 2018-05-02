@@ -15,7 +15,7 @@ $password=$_POST["password"];
 //$query->bindParam(':pwd', $password, PDO::PARAM_STR, 30);
 //$query->execute();
 //$risultato= $query->fetchAll();
-$query="SELECT email FROM utenti WHERE email = '$email' AND pwd = '$password'";
+$query="SELECT * FROM utenti WHERE email = '$email' AND pwd = '$password'";
 $risultato = $connessione->query($query);
 $num = $risultato->rowCount();
 if($num=='1'){

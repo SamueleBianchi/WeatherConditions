@@ -43,16 +43,13 @@ header('Location: index.php');
                         </ul>
                     </li>
                     <li>
-                        <a href="#">About</a>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                        <a href="./myMaps/maps.php">My Maps</a>
+<!--                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li><a href="#">Page 1</a></li>
                             <li><a href="#">Page 2</a></li>
                             <li><a href="#">Page 3</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Portfolio</a>
+                        </ul>-->
                     </li>
                     <li>
                         <a href="#">Contact</a>
@@ -81,10 +78,8 @@ header('Location: index.php');
 
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">Page</a></li>
-                                <li><a href="#">Page</a></li>
-                                <li><a href="#">Page</a></li>
-                                <li id="logout"><a href="logout.php" style="float:right; position: relative; margin-top: 10px"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                                <li id="profilo"><a href="#">Profilo</a></li>
+                                <li id="logout"><a href="logout.php" style="float:right;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                             </ul>
                         </div>
                     </div>

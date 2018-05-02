@@ -72,9 +72,11 @@ function curl($url) {
         }
 
 
-        
-       
-        $deg= $weatherArray['wind']['deg'];
+        if(isset($weatherArray['wind']['deg'])){
+            $deg=$weatherArray['wind']['deg'];
+        }else{
+            $deg= "Non disponibile";
+        }
             
         if(isset($weatherArray['snow'])){
             $neve=$weatherArray['snow'];
