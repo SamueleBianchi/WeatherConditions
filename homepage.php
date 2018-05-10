@@ -21,7 +21,7 @@ header('Location: index.php');
         <!-- Our Custom CSS -->
         <link rel="stylesheet" href="./stili/style5.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="jscript.js"></script>
+        <script src="Javascript/jscript.js"></script>
     </head>
     <body>
 
@@ -34,12 +34,12 @@ header('Location: index.php');
 
                 <ul class="list-unstyled components">
                     <p>Menu:</p>
+                    <li class="home" id="home"><a href="#">Home</a>
                     <li>
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Meteo Corrente</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li id="home1" class="active"><a href="#">Home</a></li>
-                            <li id="meteoCorrente"><a href="#">Meteo Corrente</a></li>
-                            <li><a href="#">Previsioni Meteo</a></li>
+                            <li id="meteoCorrente"><a href="#">Per città</a></li>
+                            <li id="latlong"><a href="#">Per coordinate</a></li>
                         </ul>
                     </li>
                     <li>

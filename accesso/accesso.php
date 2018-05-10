@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-require "./db/dbconnect.php";
+require "../db/dbconnect.php";
 
 $email=$_POST["email"];
 $password=$_POST["password"];
@@ -21,7 +21,7 @@ $num = $risultato->rowCount();
 if($num=='1'){
     session_start();
     $_SESSION['email'] = $email;
-    header("Location: homepage.php");   
+    header("Location: ../homepage.php");   
 } else {
     echo '<html>
     <head>
@@ -43,7 +43,7 @@ if($num=='1'){
                         <div class="alert alert-danger" role="alert">
                         Email o password errate<br>
                         </div>
-                        <a href="index.php">Ritorna alla pagina di login</a>
+                        <a href="../index.php">Ritorna alla pagina di login</a>
                         </div> 
                         
                     </div>  

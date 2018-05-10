@@ -5,7 +5,7 @@
  */
 function validateForm(){
     $("#error").empty();
-    $.post("verificaemail.php",
+    $.post("../accesso/verificaemail.php",
         {
           email: $('#email').val()
         },
@@ -51,7 +51,7 @@ function validateForm(){
         $("#errore_accesso").empty();
         $.ajax({
         type: 'POST',
-        url: 'verifica_accesso.php',
+        url: '../accesso/verifica_accesso.php',
         data: {email: $('#login-username'),password: $('#login-password')},
         success: function(data){
             switch(data){

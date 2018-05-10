@@ -19,7 +19,7 @@ if(isset($_SESSION['email'])){
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="./stili/style.css">
-        <script src="miojavascript.js"></script>
+        <script src="./Javascript/miojavascript.js"></script>
     <div class="container" >    
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
             <div class="panel panel-info" >
@@ -30,7 +30,7 @@ if(isset($_SESSION['email'])){
                     <div style="padding-top:30px" class="panel-body" >
                         
                             
-                        <form id="loginform" class="form-horizontal" role="form" method="POST" action="accesso.php" onsubmit="return validateAccess()">
+                        <form id="loginform" class="form-horizontal" role="form" method="POST" action="./accesso/accesso.php" onsubmit="return validateAccess()">
                             
                            <div id="log" style="display:none;" class="alert alert-danger">
                                     <span id="errore_accesso"></span>
@@ -85,7 +85,7 @@ if(isset($_SESSION['email'])){
                             <div style="float:right; font-size: 85%; position: relative; top:-10px"><a style="color: white;" id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').slideDown('slow')">Accedi</a></div>
                         </div>  
                         <div class="panel-body">
-                            <form id="signupform" class="form-horizontal" role="form" action="iscrizione.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                            <form id="signupform" class="form-horizontal" role="form" action="./iscrizione/iscrizione.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
                                 
                                 <div id="signupalert" style="display:none;" class="alert alert-danger">
                                     <span id="error"></span>

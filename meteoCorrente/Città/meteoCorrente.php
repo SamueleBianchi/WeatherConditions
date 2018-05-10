@@ -115,38 +115,38 @@ function curl($url) {
         
         function setImage($s,$ss) {
     if ($s === "Clear")
-        return "<center><img src='./icon/clear.png'></img></center>";
+        return "<center><img src='icon/clear.png'></img></center>";
     if ($s ==="Clouds")
-        return "<center><img src='./icon/cloud.png'></img></center>";
+        return "<center><img src='icon/cloud.png'></img></center>";
     if ($s === "Rain")
-        return "<center><img src='./icon/rain.png'></img></center>";
+        return "<center><img src='icon/rain.png'></img></center>";
     if ($s === "Drizzle")
-        return "<center><img src='./icon/drizzle.png'></img></center>";
+        return "<center><img src='icon/drizzle.png'></img></center>";
     if ($s === "Thunderstorm")
-        return "<center><img src='./icon/thunderstorm.png'></img></center>";
+        return "<center><img src='icon/thunderstorm.png'></img></center>";
     if ($s === "Snow")
-        return "<center><img src='./icon/snow.png'></img></center>";
+        return "<center><img src='icon/snow.png'></img></center>";
     if ($s === "Mist")
-        return "<center><img src='./icon/mist.png'></img></center>";
+        return "<center><img src='icon/mist.png'></img></center>";
     if ($s === "Atmosphere") {
         if ($ss === "fog" || $ss === "haze" || $ss === "mist" || $ss === "smoke")
-            return "<center><img src='./icon/haze.png'></img></center>";
+            return "<center><img src='icon/haze.png'></img></center>";
         if ($ss === "sand" || $ss === "dust" || $ss === "sand, dust whirls")
-            return "<center><img src='./icon/sand.png'></img></center>";
+            return "<center><img src='icon/sand.png'></img></center>";
         if ($ss === "tornado" || $ss === "squalls")
-            return "<center><img src='./icon/tornado.png'></img></center>";
+            return "<center><img src='icon/tornado.png'></img></center>";
     }
 
     if ($s === "Extreme") {
         if ($ss === "hot")
-            return "<center><img src='./icon/hot.png'></img></center>";
+            return "<center><img src='icon/hot.png'></img></center>";
         if ($ss === "cold")
-            return "<center><img src='./icon/cold.png'></img></center>";
+            return "<center><img src='icon/cold.png'></img></center>";
         if ($ss === "windy")
-            return "<center><img src='./icon/windy.png'></img></center>";
+            return "<center><img src='icon/windy.png'></img></center>";
         if ($ss === "tornado" || $ss === "tropical storms" || $ss === "hurricane")
-            return "<center><img src='./icon/tornado.png'></img></center>";
+            return "<center><img src='icon/tornado.png'></img></center>";
         if ($ss === "hail")
-            return "<center><img src='./icon/hail.png'></img></center>";
+            return "<center><img src='icon/hail.png'></img></center>";
     }
 }

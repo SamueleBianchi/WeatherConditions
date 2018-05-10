@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-require "./db/dbconnect.php";
+require "../db/dbconnect.php";
 
 $nome=$_POST['nome'];
 $cognome=$_POST['cognome'];
@@ -28,7 +28,7 @@ $path_parts = pathinfo($_FILES["userfile"]["name"]);
 $ext = $path_parts['extension'];
 $filemat=$email.'.'.$ext;
 
-if ((move_uploaded_file($userfile_tmp,"./foto/".$filemat))&&$pwd==$pwd2){
+if ((move_uploaded_file($userfile_tmp,"../foto/".$filemat))&&$pwd==$pwd2){
 
             $query=$connessione->prepare("INSERT INTO Utenti (IDUtente, nome, cognome, email, pwd, sesso, ente, citta, fotoProfilo) VALUES (:IDUtente, :nome, :cognome, :email, :pwd, :sesso, :ente, :citta, :fotoProfilo)");
             $query->bindParam(':IDUtente', $IDUtente, PDO::PARAM_INT, 10);
@@ -47,7 +47,7 @@ if ((move_uploaded_file($userfile_tmp,"./foto/".$filemat))&&$pwd==$pwd2){
         <meta charset="UTF-8">
         <title></title>
     </head>
-    <body background="./image/gocce.jpg" style="background-attachment:fixed; background-size: 100% 100%;">
+    <body background="../image/gocce.jpg" style="background-attachment:fixed; background-size: 100% 100%;">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <div class="container">    
