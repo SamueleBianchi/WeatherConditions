@@ -1,5 +1,6 @@
 <?php
 
+require_once '../gestoreIcone.php';
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -101,7 +102,7 @@ function curl($url) {
         
         $dateInLocal = date("Y-m-d H:i:s", $dataUTC);
         
-        $weather ="<h4>Temperature a ".$nome."</h4>".setImage($condizione,$descrizione)."<br> <strong>Temperatura in Celsius:&nbsp</strong> ".$tempInCelsius."&deg C <br><strong>Temperatura minima:&nbsp</strong> ".$temp_min."&deg C <br><strong>Temperatura massima:&nbsp</strong> ".$temp_max."&deg C <br><strong>Temperatura in Fahrenheit:&nbsp</strong> ".$tempInFahrenheit."&deg F <br><strong>Condizione:&nbsp</strong> ".$condizione."&nbsp<br><strong>Descrizione:&nbsp</strong> ".$descrizione."<br> <strong>Pressione :&nbsp</strong> ".$pressione." hPa <br> <strong>Umidità :&nbsp</strong> ".$umidità."%<br><strong>Precipitazioni :&nbsp</strong>".$pioggia."mm<br> <strong>Nuvolosità :&nbsp</strong> ".$clouds."%<br><strong>Neve:&nbsp</strong>".$neve."<br> <strong>Visibilità :&nbsp</strong> ".$visibilità." <hr><h4>Vento</h4><strong>Velocità in MPH:&nbsp </strong>".$speedInMPH." MPH<br><strong>Velocità in m/s: &nbsp</strong> ".$speedinMs."<br><strong>Deg: &nbsp</strong>".$deg."<br><hr><h4>Generali</h4><strong>Nome:&nbsp </strong>".$nome."<br><strong>Latitudine :&nbsp</strong>".$latitudine."<br><strong>Longitudine :&nbsp</strong>".$lon."<br><strong>Paese :&nbsp</strong>".$paese."<br><strong>Data :&nbsp</strong>".$dateInLocal."<br><strong>Alba:&nbsp</strong>".$alba."</br><strong>Tramonto:&nbsp</strong>".$tramonto."<br>";
+        $weather ="<h4>Temperature a ".$nome."</h4>".setImage($condizione,$descrizione)."<br> <strong>Temperatura in Celsius:&nbsp</strong> ".$tempInCelsius."&deg C <br><strong>Temperatura minima:&nbsp</strong> ".$temp_min."&deg C <br><strong>Temperatura massima:&nbsp</strong> ".$temp_max."&deg C <br><strong>Temperatura in Fahrenheit:&nbsp</strong> ".$tempInFahrenheit."&deg F <br><strong>Condizione:&nbsp</strong> ".$condizione."&nbsp<br><strong>Descrizione:&nbsp</strong> ".$descrizione."<br> <strong>Pressione :&nbsp</strong> ".$pressione." hPa <br> <strong>Umidità :&nbsp</strong> ".$umidità."%<br><strong>Precipitazioni :&nbsp</strong>".$pioggia."mm<br> <strong>Nuvolosità :&nbsp</strong> ".$clouds."%<br><strong>Neve:&nbsp</strong>".$neve."<br> <strong>Visibilità :&nbsp</strong> ".$visibilità." <hr><div><h4>Vento</h4><strong>Velocità in MPH:&nbsp </strong>".$speedInMPH." MPH<div style='position: absolute; left: 45%; top: 55%;'><img src='icon/windy.png'></div><br><strong>Velocità in m/s: &nbsp</strong> ".$speedinMs."<br><strong>Deg: &nbsp</strong>".$deg."<br></div><hr><h4>Generali</h4><strong>Nome:&nbsp </strong>".$nome."<br><strong>Latitudine :&nbsp</strong>".$latitudine."<br><strong>Longitudine :&nbsp</strong>".$lon."<br><strong>Paese :&nbsp</strong>".$paese."<br><strong>Data :&nbsp</strong>".$dateInLocal."<br><strong>Alba:&nbsp</strong>".$alba."</br><strong>Tramonto:&nbsp</strong>".$tramonto."<br>";
             
             if($weather) {
                 
@@ -112,41 +113,3 @@ function curl($url) {
             echo '<div class="alert alert-danger" role="alert"><strong>Errore :&nbsp</strong>impossbile trovare la città ricercata</div>';
         }
         }
-        
-        function setImage($s,$ss) {
-    if ($s === "Clear")
-        return "<center><img src='icon/clear.png'></img></center>";
-    if ($s ==="Clouds")
-        return "<center><img src='icon/cloud.png'></img></center>";
-    if ($s === "Rain")
-        return "<center><img src='icon/rain.png'></img></center>";
-    if ($s === "Drizzle")
-        return "<center><img src='icon/drizzle.png'></img></center>";
-    if ($s === "Thunderstorm")
-        return "<center><img src='icon/thunderstorm.png'></img></center>";
-    if ($s === "Snow")
-        return "<center><img src='icon/snow.png'></img></center>";
-    if ($s === "Mist")
-        return "<center><img src='icon/mist.png'></img></center>";
-    if ($s === "Atmosphere") {
-        if ($ss === "fog" || $ss === "haze" || $ss === "mist" || $ss === "smoke")
-            return "<center><img src='icon/haze.png'></img></center>";
-        if ($ss === "sand" || $ss === "dust" || $ss === "sand, dust whirls")
-            return "<center><img src='icon/sand.png'></img></center>";
-        if ($ss === "tornado" || $ss === "squalls")
-            return "<center><img src='icon/tornado.png'></img></center>";
-    }
-
-    if ($s === "Extreme") {
-        if ($ss === "hot")
-            return "<center><img src='icon/hot.png'></img></center>";
-        if ($ss === "cold")
-            return "<center><img src='icon/cold.png'></img></center>";
-        if ($ss === "windy")
-            return "<center><img src='icon/windy.png'></img></center>";
-        if ($ss === "tornado" || $ss === "tropical storms" || $ss === "hurricane")
-            return "<center><img src='icon/tornado.png'></img></center>";
-        if ($ss === "hail")
-            return "<center><img src='icon/hail.png'></img></center>";
-    }
-}
