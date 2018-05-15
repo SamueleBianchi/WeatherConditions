@@ -13,10 +13,14 @@ $(document).ready(function(){
         case "home":
             $('#pagina').empty();
             $('#pagina').load("homeHeader.php");
-        break;
+            break;
         case "latlong":
             $('#pagina').empty();
             $('#pagina').load("./meteoCorrente/Coordinate/formLatLong.php");
+            break;
+        case "previsioni":
+        $('#pagina').empty();
+        $('#pagina').load("./Previsioni/formPrevisioniMeteo.php");
        }
     });
    

@@ -41,9 +41,10 @@ header('Location: index.php');
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li id="meteoCorrente"><a href="#"><span class="glyphicon glyphicon-globe"></span>   Per città</a></li>
                             <li id="latlong"><a href="#"><span class="glyphicon glyphicon-map-marker"></span>   Per coordinate</a></li>
+                        
                         </ul>
                     </li>
-                    <li>
+                    <li id="previsioni">
                         <a href="#">Previsioni Meteo</a>
                     </li>
                     <li>
@@ -80,14 +81,15 @@ header('Location: index.php');
 
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
-                                <li id="profilo"><a href="#">Profilo</a></li>
+                                <img align="left" src="./foto/<?php echo $_SESSION['fotoProfilo'];?>" style="width:45px;height:45px; border-radius: 50%; "></img>
+                                <li id="profilo"><a href="#"><?php echo $_SESSION['nome'];?></a></li>
                                 <li id="logout"><a href="logout.php" style="float:right;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                             </ul>
                         </div>
                     </div>
                 </nav>
                 <div id="pagina">
-                <h2>Ciao <?php echo $_SESSION['email'];?>, bentornato</h2>
+                <h2>Ciao <?php echo $_SESSION['nome'];?>, bentornato</h2>
                 <p>Per usufruire dei vari servizi, utilizza l'apposito menù laterale. Se desideri visualizzare l'intera pagina e oscurare il menù laterale ti basterà cliccare nella X in alto. Viceversa, se desideri riutilizzare il menù dovrai cliccare nuovamente nell'apposito pulsante</p>
                 <p>Per uscire dal proprio profilo utente dovrai cliccare nel pulsante in alto a destra "Logout" che ti reindirizzerà alla pagina di accesso</p>
                 <p>Ogni sezione è provvista di varie funzionalità che ti permetteranno di consultare i vari dati di interesse </p>

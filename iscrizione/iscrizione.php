@@ -62,7 +62,7 @@ if ((move_uploaded_file($userfile_tmp,"../foto/".$filemat))&&$pwd==$pwd2){
                         <div class="alert alert-success" role="alert">
                         Iscrizione avvenuta con successo<br>
                         </div>
-                        <a href="index.php">Ritorna alla pagina di login</a>
+                        <a href="../index.php">Ritorna alla pagina di login</a>
                         </div> 
                         
                     </div>  

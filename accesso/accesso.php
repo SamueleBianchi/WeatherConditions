@@ -17,10 +17,16 @@ $password=$_POST["password"];
 //$risultato= $query->fetchAll();
 $query="SELECT * FROM utenti WHERE email = '$email' AND pwd = '$password'";
 $risultato = $connessione->query($query);
+foreach ($connessione->query($query) as $row) {
+        $foto =  $row['fotoProfilo'];
+        $nome = $row['nome'];
+    }
 $num = $risultato->rowCount();
 if($num=='1'){
     session_start();
     $_SESSION['email'] = $email;
+    $_SESSION['fotoProfilo'] = $foto;
+    $_SESSION['nome'] = $nome;
     header("Location: ../homepage.php");   
 } else {
     echo '<html>
