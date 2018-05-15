@@ -13,6 +13,7 @@ header('Location: index.php');
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <title>Weather Conditions</title>
 
@@ -38,12 +39,15 @@ header('Location: index.php');
                     <li>
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Meteo Corrente</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li id="meteoCorrente"><a href="#">Per città</a></li>
-                            <li id="latlong"><a href="#">Per coordinate</a></li>
+                            <li id="meteoCorrente"><a href="#"><span class="glyphicon glyphicon-globe"></span>   Per città</a></li>
+                            <li id="latlong"><a href="#"><span class="glyphicon glyphicon-map-marker"></span>   Per coordinate</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="./myMaps/maps.php">My Maps</a>
+                        <a href="#">Previsioni Meteo</a>
+                    </li>
+                    <li>
+                        <a href="./myMaps/maps.php"><i class="material-icons" style="font-size:20px;">map</i>  My Maps</a>
 <!--                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li><a href="#">Page 1</a></li>
@@ -51,9 +55,7 @@ header('Location: index.php');
                             <li><a href="#">Page 3</a></li>
                         </ul>-->
                     </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
+                    
                 </ul>
 
                 <ul class="list-unstyled CTAs">

@@ -225,7 +225,11 @@ a.article, a.article:hover {
 }
 .icons{
     left: 40%;
-    top: 15%;
+    top: 5%;
     position: absolute;
     max-width: 90%;
+}
+
+.icone{
+    border-radius: 5px;
 }
