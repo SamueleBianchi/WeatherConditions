@@ -22,6 +22,8 @@ header('Location: index.php');
         <!-- Our Custom CSS -->
         <link rel="stylesheet" href="./stili/style5.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.min.js"
+        type="text/javascript"></script>
         <script src="Javascript/jscript.js"></script>
     </head>
     <body>

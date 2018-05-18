@@ -53,6 +53,24 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
     evt.preventDefault(); 
     });
     
+    $(document).on('submit', 'form#previsioni', function(evt){
+         $.ajax({
+           type: "POST",
+           url: "./Previsioni/previsioniMeteo.php",
+           data: {city: $("#city").val()}, // serializes the form's elements.
+           success: function(data)
+           {
+               $("#prev").html(data); // show response from the php script.
+           }
+         });
+
+    evt.preventDefault(); 
+    });
+    
+    $(document).ready(function() {
+    $('#table').DataTable();
+} );
+    
 //$("#home").click(function() {
 //  $('#pagina').empty();
 //  $('#pagina').load("<h2>Ciao <?php echo $_SESSION['email'];?>, bentornato</h2><p>Per usufruire dei vari servizi, utilizza l'apposito menù laterale. Se desideri visualizzare l'intera pagina e oscurare il menù laterale ti basterà cliccare nella X in alto. Viceversa, se desideri riutilizzare il menù dovrai cliccare nuovamente nell'apposito pulsante</p><p>Per uscire dal proprio profilo utente dovrai cliccare nel pulsante in alto a destra 'Logout' che ti reindirizzerà alla pagina di accesso</p><p>Ogni sezione è provvista di varie funzionalità che ti permetteranno di consultare i vari dati di interesse </p>");
