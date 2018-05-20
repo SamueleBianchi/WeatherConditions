@@ -5,10 +5,8 @@
         <group name="PHP">
             <file>file:/C:/xampp/htdocs/WeatherConditions/homepage.php</file>
             <file>file:/C:/xampp/htdocs/WeatherConditions/Previsioni/previsioniMeteo.php</file>
-            <file>file:/C:/xampp/htdocs/WeatherConditions/iscrizione/iscrizione.php</file>
-            <file>file:/C:/xampp/htdocs/WeatherConditions/meteoCorrente/gestoreIcone.php</file>
-            <file>file:/C:/xampp/htdocs/WeatherConditions/accesso/accesso.php</file>
             <file>file:/C:/xampp/htdocs/WeatherConditions/Javascript/jscript.js</file>
+            <file>file:/C:/xampp/htdocs/WeatherConditions/meteoCorrente/Città/meteoCorrente.php</file>
             <file>file:/C:/xampp/htdocs/WeatherConditions/Previsioni/formPrevisioniMeteo.php</file>
         </group>
     </open-files>
