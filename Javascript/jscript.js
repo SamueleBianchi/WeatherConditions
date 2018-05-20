@@ -21,6 +21,11 @@ $(document).ready(function(){
         case "previsioni":
         $('#pagina').empty();
         $('#pagina').load("./Previsioni/formPrevisioniMeteo.php");
+            break;
+        case "profilo":
+        $('#pagina').empty();
+        $('#pagina').load('./modificaProfilo/caricaProfilo.php');
+        break;
        }
     });
    
@@ -61,6 +66,22 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
            success: function(data)
            {
                $("#prev").html(data); // show response from the php script.
+           }
+         });
+
+    evt.preventDefault(); 
+    });
+    
+    $(document).on('submit', 'form#aggiornaProfilo', function(evt){
+         $.ajax({
+           type: "POST",
+           url: "./modificaProfilo/aggiornaProfilo.php",
+           data: {nome: $("#nome").val(),cognome: $("#cognome").val(),email: $("#email").val(),pwd: $("#pwd").val(),ente: $("#ente").val(),città: $("#città").val(),sesso: $("#sesso").val(),userfile_name :$('#userfile').valueOf()}, // serializes the form's elements.
+           success: function(data)
+           {
+               $("#success").empty(); // show response from the php script.
+               $("#success").html(data); // show response from the php script.
+               $("#success").css("display", "block");
            }
          });
 

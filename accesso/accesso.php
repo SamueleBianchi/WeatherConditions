@@ -20,6 +20,7 @@ $risultato = $connessione->query($query);
 foreach ($connessione->query($query) as $row) {
         $foto =  $row['fotoProfilo'];
         $nome = $row['nome'];
+        $id = $row['IDUtente'];
     }
 $num = $risultato->rowCount();
 if($num=='1'){
@@ -27,6 +28,7 @@ if($num=='1'){
     $_SESSION['email'] = $email;
     $_SESSION['fotoProfilo'] = $foto;
     $_SESSION['nome'] = $nome;
+    $_SESSION['IDUtente'] = $id;
     header("Location: ../homepage.php");   
 } else {
     echo '<html>
