@@ -6,6 +6,7 @@ and open the template in the editor.
 -->
 <?php session_start(); 
 if(!isset($_SESSION['email'])){
+$_SERVER['PHP_SELF'];
 header('Location: index.php');
 }?>
 <html>
