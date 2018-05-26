@@ -66,6 +66,40 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
            success: function(data)
            {
                $("#prev").html(data); // show response from the php script.
+               var table = '#mytable';
+        $('#maxRows').on('change',function(){
+		  	$('.pagination').html('');
+		  	var trnum = 0 ;	
+		  	var maxRows = parseInt($(this).val());
+		  	var totalRows = $(table+' tbody tr').length;
+			 $(table+' tr:gt(0)').each(function(){	
+			 	trnum++;				
+			 	if (trnum > maxRows ){		
+			 		$(this).hide();		
+			 	}if (trnum <= maxRows ){$(this).show();}
+			 });										
+			 if (totalRows > maxRows){						
+			 	var pagenum = Math.ceil(totalRows/maxRows);	
+			 	for (var i = 1; i <= pagenum ;){
+			 	$('.pagination').append('<li data-page="'+i+'">\
+								      <span>'+ i++ +'<span class="sr-only">(current)</span></span>\
+								    </li>').show();
+			 	}											
+			} 												
+			$('.pagination li:first-child').addClass('active');
+			$('.pagination li').on('click',function(){	
+				var pageNum = $(this).attr('data-page');
+				var trIndex = 0 ;						
+				$('.pagination li').removeClass('active');
+				$(this).addClass('active');				 
+				$(table+' tr:gt(0)').each(function(){	
+				 	trIndex++;	
+				 	if (trIndex > (maxRows*pageNum) || trIndex <= ((maxRows*pageNum)-maxRows)){
+				 		$(this).hide();		
+				 	}else {$(this).show();} 				
+				}); 										
+            });	
+        });
            }
          });
 
@@ -88,11 +122,5 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
     evt.preventDefault(); 
     });
     
-    $(document).ready(function() {
-    $('#table').DataTable();
-} );
-    
-//$("#home").click(function() {
-//  $('#pagina').empty();
-//  $('#pagina').load("<h2>Ciao <?php echo $_SESSION['email'];?>, bentornato</h2><p>Per usufruire dei vari servizi, utilizza l'apposito menù laterale. Se desideri visualizzare l'intera pagina e oscurare il menù laterale ti basterà cliccare nella X in alto. Viceversa, se desideri riutilizzare il menù dovrai cliccare nuovamente nell'apposito pulsante</p><p>Per uscire dal proprio profilo utente dovrai cliccare nel pulsante in alto a destra 'Logout' che ti reindirizzerà alla pagina di accesso</p><p>Ogni sezione è provvista di varie funzionalità che ti permetteranno di consultare i vari dati di interesse </p>");
-//});
+
+

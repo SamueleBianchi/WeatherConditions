@@ -1,7 +1,9 @@
 <div class="container">
-<script src="http://code.jquery.com/jquery-latest.min.js"
-        type="text/javascript"></script>
+  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="jquery.min.js"></script>
+  <link href="bootstrap.min.css" rel="stylesheet"/>
+   <script src="bootstrap.min.js"></script>
         <h2>Previsioni Meteo</h2>
          
         <form name="previsioni" id="previsioni" method="POST" action="./Previsioni/previsioniMeteo.php">

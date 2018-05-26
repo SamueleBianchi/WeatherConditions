@@ -36,7 +36,7 @@ if($num=='1'){
         <meta charset="UTF-8">
         <title></title>
     </head>
-    <body background="./image/gocce.jpg" style="background-attachment:fixed; background-size: 100% 100%;">
+    <body background="../image/gocce.jpg" style="background-attachment:fixed; background-size: 100% 100%;">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <div class="container">    

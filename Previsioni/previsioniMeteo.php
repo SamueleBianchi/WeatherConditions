@@ -16,11 +16,25 @@ function curl($url) {
        
        if(strpos($urlContents,"city not found")===false){
            
+           $arrayTempmax = array();
+           $arrayOra = array();
            $weatherArray = json_decode($urlContents, true);
-           echo '<div class="alert alert-success">Previsioni meteo per: '.$weatherArray['city']['name'].'<br>Latitudine: '.$weatherArray['city']['coord']['lat'].'<br>Longitudine: '.$weatherArray['city']['coord']['lon'].'</div>';
-           
-           echo '<div class="table-responsive text-center">
-    <table class="table table-striped table-bordered table-hover" id="table" name="table">
+           echo '<div class="container">
+
+           <div class="alert alert-success">Previsioni meteo per: '.$weatherArray['city']['name'].'<br>Latitudine: '.$weatherArray['city']['coord']['lat'].'<br>Longitudine: '.$weatherArray['city']['coord']['lon'].'</div>
+           <div class="form-group"> 
+            <select class="form-control" name="state" id="maxRows">
+				<option value="5000">Mostra tutte le righe</option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+				<option value="50">50</option>
+				<option value="70">70</option>
+				<option value="100">100</option>
+            </select> 		
+        </div>';
+           echo '<table id="mytable" class="table table-striped table-bordered table-hover" >
       <thead>
         <tr>
           <th>Data</th>
@@ -41,8 +55,10 @@ function curl($url) {
        <tbody>';
         
         foreach ($weatherArray['list'] as $ora){
+            array_push($arrayTempmax, (float)($ora['main']['temp']-273.15));
+            array_push($arrayOra, date("H:i:s", $ora['dt']));
             if(isset($ora['rain']['3h'])){
-                $neve = number_format((float)$ora['rain']['3h'], 3, '.', '');;
+                $neve = number_format((float)$ora['rain']['3h'], 3, '.', '');
             }else{
                 $neve = "_";
             }
@@ -66,11 +82,16 @@ function curl($url) {
             . '<td>'.number_format((float)$ora['wind']['deg'], 3, '.', '').'</td>'
         . '<td>'.$ora['weather'][0]['description'].'</td>'
             . '</tr>';
+            
         }
-      echo'</tbody>
-    </table>
-    </div>
+      echo'</tbody></table><div class="pagination-container" >
+            <nav>
+				<ul class="pagination"></ul>
+            </nav>
+        </div>
     </div>';
+//    print_r($arrayTempmax);
+//    print_r($arrayOra);
        }
        else{
            echo '<div class="alert alert-danger"><strong>Errore: </strong>impossibile trovare la città ricercata.</div>';

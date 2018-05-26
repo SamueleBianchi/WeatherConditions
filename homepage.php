@@ -4,9 +4,10 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<?php session_start(); 
-if(!isset($_SESSION['email'])){
+<?php 
 $_SERVER['PHP_SELF'];
+session_start(); 
+if(!isset($_SESSION['email'])){
 header('Location: index.php');
 }?>
 <html>
@@ -23,9 +24,8 @@ header('Location: index.php');
         <!-- Our Custom CSS -->
         <link rel="stylesheet" href="./stili/style5.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="http://code.jquery.com/jquery-latest.min.js"
-        type="text/javascript"></script>
         <script src="Javascript/jscript.js"></script>
+        <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
     </head>
     <body>
 
