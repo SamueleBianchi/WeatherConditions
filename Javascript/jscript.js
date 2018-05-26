@@ -122,5 +122,15 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
     evt.preventDefault(); 
     });
     
+    function carica(){         
+          $.ajax({
+    type: "POST",
+    url: "./Previsioni/grafico.php",
+    data: $('select#sel').serialize()
+    }).done(function(data) {
+    $("#grafico").html(data);
+    });
+    }
+    
 
 

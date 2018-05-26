@@ -23,7 +23,7 @@ function curl($url) {
 
            <div class="alert alert-success">Previsioni meteo per: '.$weatherArray['city']['name'].'<br>Latitudine: '.$weatherArray['city']['coord']['lat'].'<br>Longitudine: '.$weatherArray['city']['coord']['lon'].'</div>
            <div class="form-group"> 
-            <select class="form-control" name="state" id="maxRows">
+            <select class="form-control" name="state" id="maxRows" style="width:50%;">
 				<option value="5000">Mostra tutte le righe</option>
 				<option value="5">5</option>
 				<option value="10">10</option>
@@ -89,6 +89,18 @@ function curl($url) {
 				<ul class="pagination"></ul>
             </nav>
         </div>
+        <div class="container">
+        <h3>Scegli il grafico da visualizzare:</h3>
+        <form action="./Previsioni/grafico.php" method="POST">
+        <select class="form-control" name="sel" id="sel" style="width:50%" onchange="carica()">
+				<option value="Precipitazioni">Precipitazioni</option>
+				<option value="Massima">Temperatura massima</option>
+				<option value="Minima">Temperatura minima</option>
+				<option value="Umidità">Umidità</option>
+            </select> 
+            <div id="grafico"></div>
+            </div>
+            </form>
     </div>';
 //    print_r($arrayTempmax);
 //    print_r($arrayOra);
