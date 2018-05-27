@@ -57,7 +57,7 @@ function curl($url) {
         if(isset($weatherArray['rain']['3h'])){
             $pioggia = $weatherArray['rain']['3h'];
         }else{
-            $pioggia = "0";
+            $pioggia = 0;
         }
         
         if(isset($weatherArray['main']["pressure"])){
@@ -92,9 +92,11 @@ function curl($url) {
         $tramonto = date("Y-m-d H:i:s",$weatherArray['sys']['sunset']);
         
         if(isset($weatherArray['visibility'])){
-            $visibilità=$weatherArray['visibility']." m";
+            $visibilità=$weatherArray['visibility'];
+            $vis= $weatherArray['visibility'];
         }else{
             $visibilità="non disponibile";
+            $vis = 0;
         }
         
         $dataUTC= $weatherArray['dt'];
@@ -106,7 +108,28 @@ function curl($url) {
             
             if($weather) {
                 
-                echo '<div class="alert alert-info" role="alert">'.$weather.'</div>';
+                echo '<div class="alert alert-info" role="alert">'.$weather.'</div><div id="alert" style="display : none;"></div><label for="nota">Aggiungi una nota:</label>'
+  
+                    .'<form id="archivio" action="./archivio/archivio.php" method="post">'
+                        . '<textarea class="form-control" type="text" rows="5" name="nota" id="nota" placeholder="Aggiungi una nota" required>'
+                        . '</textarea>'
+                        . '<div style="display: none;">'
+                        . '<input type="text" class="form-control" value="'.$nome.'" name="città" id="città">'
+                        . '<input type="text" class="form-control" value="'.$tempInCelsius.'" name="temp" id="temp">'
+                        . '<input type="text" class="form-control" value="'.$temp_max.'" name="tempMax" id="tempMax">'
+                        . '<input type="text" class="form-control" value="'.$temp_min.'" name="tempMin" id="tempMin">'
+                        . '<input type="text" class="form-control" value="'.$clouds.'" name="nuvole" id="nuvole">'
+                        . '<input type="text" class="form-control" value="'.$pressione.'" name="pressione" id="pressione">'
+                        . '<input type="text" class="form-control" value="'.$umidità.'" name="umidità" id="umidità">'
+                        . '<input type="text" class="form-control" value="'.$pioggia.'" name="pioggia" id="pioggia">'
+                        . '<input type="text" class="form-control" value="'.$neve.'" name="neve" id="neve">'
+                        . '<input type="text" class="form-control" value="'.$speedInMPH.'" name="velocitàVento" id="velocitàVento">'
+                        . '<input type="datetime-local" class="form-control" value="'.$deg.'" name="degVento" id="degVento">'
+                        . '<input type="text" class="form-control" value="'.$dataUTC.'" name="tempo" id="tempo">'
+                        . '<input type="text" class="form-control" value="'.$descrizione.'" name="descrizione" id="descrizione">'
+                        . '</div><br>'
+                        . '<button type="submit" class="btn btn-danger">Aggiungi</button>'
+                    . '</form>';
                 
             }
         }else{

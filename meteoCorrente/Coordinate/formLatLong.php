@@ -17,7 +17,7 @@
       
       
         </form>
-         
+         <div name="weather" id="weather" style="margin-top: 20px; position: relative;"></div>
         
      </div> 
 

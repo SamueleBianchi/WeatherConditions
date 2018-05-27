@@ -26,6 +26,17 @@ $(document).ready(function(){
         $('#pagina').empty();
         $('#pagina').load('./modificaProfilo/caricaProfilo.php');
         break;
+        case "archivio":
+        $('#pagina').empty();
+         $.ajax({
+           type: "POST",
+           url: "./archivio/caricaArchivio.php",
+           success: function(data)
+           {
+               $("#pagina").html(data); // show response from the php script.
+           }
+         });
+        break;
        }
     });
    
@@ -131,6 +142,25 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
     $("#grafico").html(data);
     });
     }
+    
+    $(document).on('submit', 'form#archivio', function(evt){
+         $.ajax({
+           type: "POST",
+           url: "./archivio/archivio.php",
+           data: {nota: $("#nota").val(), città: $("#città").val(), temp: $("#temp").val(),tempMax: $("#tempMax").val(),tempMin: $("#tempMin").val(),
+           pressione: $("#pressione").val(),umidità: $("#umidità").val(),pioggia: $("#pioggia").val(),neve: $("#neve").val(),nuvole: $("#nuvole").val(),
+           velocitàVento: $("#velocitàVento").val(), degVento: $("#degVento").val(),tempo: $("#tempo").val(),descrizione: $("#descrizione").val()},
+           success: function(data)
+           {
+               $("#alert").empty();
+               $("#alert").append(data);
+               $("#alert").css("display", "block");
+               $("#alert").css("font-family", "Poppins");
+           }
+         });
+
+    evt.preventDefault(); 
+    });
     
 
 

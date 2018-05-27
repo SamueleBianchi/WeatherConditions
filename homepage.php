@@ -39,6 +39,7 @@ header('Location: index.php');
                 <ul class="list-unstyled components">
                     <p>Menu:</p>
                     <li class="home" id="home"><a href="#">Home</a>
+                    <li id="archivio"><a href="#">Il mio archivio</a>
                     <li>
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Meteo Corrente</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">

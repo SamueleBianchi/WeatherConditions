@@ -15,7 +15,7 @@ function setImage($s,$ss) {
     if ($s === "Drizzle")
         return "<div class='icons'><img src='icon/pioggierella.jpg' height='260' width='350' style='border-radius: 5px;'></img></div>";
     if ($s === "Thunderstorm")
-        return "<div class='icons'><img src='icon/fulmini.svg' height='260' width='350' style='border-radius: 5px;'></img></div>";
+        return "<div class='icons'><img src='icon/fulmini.jpg' height='260' width='350' style='border-radius: 5px;'></img></div>";
     if ($s === "Snow")
         return "<div class='icons'><img src='icon/neve.jpg' height='260' width='350' style='border-radius: 5px;'></img></div>";
     if ($s === "Mist")

@@ -20,4 +20,25 @@ $crea_tb = $connessione->exec("CREATE TABLE IF NOT EXISTS Utenti (
     fotoProfilo varchar(30) NOT NULL,
     PRIMARY KEY (idUtente)
   )");
+
+ $query = $connessione->exec("CREATE TABLE IF NOT EXISTS archivio(
+         idArchivio INT(10) NOT NULL AUTO_INCREMENT,
+         città VARCHAR(50) NOT NULL,
+         temp FLOAT NOT NULL,
+         tempMax FLOAT NOT NULL,
+         tempMin FLOAT NOT NULL,
+         pressione FLOAT NOT NULL,
+         umidità FLOAT NOT NULL,
+         visibilità FLOAT,
+         velocitàVento FLOAT NOT NULL,
+         degVento FLOAT NOT NULL,
+         nuvole FLOAT NOT NULL,
+         pioggia FLOAT, neve FLOAT,
+         tempo DATE NOT NULL,
+         descrizione VARCHAR(50) NOT NULL,
+         nota VARCHAR(50) NOT NULL,
+         CodUtente INT(10) NOT null,
+         PRIMARY KEY (IdArchivio),
+         FOREIGN KEY (CodUtente) REFERENCES utenti(IDUtente) 
+         )");
     
