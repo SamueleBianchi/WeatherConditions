@@ -4,7 +4,7 @@ require "../db/dbconnect.php";
 session_start();
 $IDUtente = $_SESSION['IDUtente'];
 
-$query = "SELECT * FROM archivio INNER JOIN utenti ON utenti.IDUtente = archivio.CodUtente WHERE utenti.IDUtente = $IDUtente";
+$query = "SELECT idArchivio, archivio.citta, temp, tempMax, tempMin, pressione, umidita, velocitaVento, degVento, nuvole, pioggia, neve, tempo, descrizione, nota FROM archivio INNER JOIN utenti ON utenti.IDUtente = archivio.CodUtente WHERE utenti.IDUtente = $IDUtente";
 $risultato = $connessione->query($query);
 $num = $risultato->rowCount();
 if($num === 0){

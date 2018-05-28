@@ -29,6 +29,17 @@ if($num=='1'){
     $_SESSION['fotoProfilo'] = $foto;
     $_SESSION['nome'] = $nome;
     $_SESSION['IDUtente'] = $id;
+    if(!empty($_POST["remember"])) {
+				setcookie ("email",$_POST["email"],time()+ (10 * 365 * 24 * 60 * 60), "/");
+				setcookie ("password",$_POST["password"],time()+ (10 * 365 * 24 * 60 * 60), "/");
+			} else {
+				if(isset($_COOKIE["email"])) {
+					setcookie ("email","");
+				}
+				if(isset($_COOKIE["password"])) {
+					setcookie ("password","");
+				}
+			}
     header("Location: ../homepage.php");   
 } else {
     echo '<html>

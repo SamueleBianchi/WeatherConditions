@@ -155,7 +155,6 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
                $("#alert").empty();
                $("#alert").append(data);
                $("#alert").css("display", "block");
-               $("#alert").css("font-family", "Poppins");
            }
          });
 
