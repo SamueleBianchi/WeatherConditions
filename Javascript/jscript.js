@@ -133,14 +133,17 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
     evt.preventDefault(); 
     });
     
-    function carica(){         
-          $.ajax({
-    type: "POST",
-    url: "./Previsioni/grafico.php",
-    data: $('select#sel').serialize()
-    }).done(function(data) {
-    $("#grafico").html(data);
-    });
+    function carica(){   
+    $.ajax({
+           type: "POST",
+           url: "./Previsioni/grafico.php",
+           dataType : 'json',
+           data: {sel:$('select#sel').val(), c:$('#c').val()},
+           success: function(data)
+           {
+               caricaGrafico($('select#sel').val(),data);
+                         }
+                       });
     }
     
     $(document).on('submit', 'form#archivio', function(evt){
@@ -161,5 +164,69 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
     evt.preventDefault(); 
     });
     
+function caricaGrafico(scelta,data){
+    var labels = [], dato = [];
+    var descrizioneX = "Data e Ora";
+    var descrizioneY;
+    var descrizioneLabel;
+    var titolo;
+    switch(scelta){
+        case "Massima":
+           descrizioneY = "Temperatura massima in °C";
+           descrizioneLabel = "Grafico temperature massime a "+$('#c').val();
+           titolo = "Grafico temperature massime";
+           for (var i = 0; i < data.length ; i++){
+            labels.push(data[i].ora);
+            dato.push(data[i].tempMax);
+            }
+            break;
+        case "Minima":
+            descrizioneY = "Temperatura minime in °C";
+           descrizioneLabel = "Grafico temperature minime a "+$('#c').val();
+           titolo = "Grafico temperature minime";
+            for (var i = 0; i < data.length ; i++){
+            labels.push(data[i].ora);
+            dato.push(data[i].tempMin);
+            }
+            break;
+    } 
+     
+    console.log(labels);
+    console.log(dato);
+              $("#grafico").html('<canvas id="line-chart" width="800" height="450"></canvas>');
+              new Chart(document.getElementById("line-chart"), {
+                type: 'line',
+                data: {
+                  labels: labels,
+                  datasets: [{ 
+                      data: dato,
+                      label: descrizioneLabel,
+                      borderColor: "#3e95cd",
+                      fill: false
+                    }
+                  ]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: titolo
+                  },
+                  scales: {
+            yAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: descrizioneY
+          }
+        }],
+    xAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: descrizioneX
+          }
+        }]
 
+      }
+                }
+              });
+}
 

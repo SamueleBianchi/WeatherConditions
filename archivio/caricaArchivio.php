@@ -10,7 +10,7 @@ $num = $risultato->rowCount();
 if($num === 0){
     echo '<div class="alert alert-danger" role="alert">Il tuo archivio è vuoto! Puoi aggiungere record al tuo archivio nell apposita area in basso a destra nella ricarca meteo corrente</div>';
 }else{
-     echo '<h3>Il mio archivio</h3><table id="mytable" class="table table-striped table-bordered table-hover" >
+     echo '<div style="overflow:auto; width: 1200px;"><h3>Il mio archivio</h3><table id="mytable" class="table table-striped table-bordered table-hover" style="overflow-x:scroll" >
       <thead>
         <tr>
           <th>Data</th>
@@ -48,4 +48,5 @@ if($num === 0){
                  . '<td>'.$riga['nota'].'</td>'
             . '</tr>';
      }
+     echo '<div>';
 }

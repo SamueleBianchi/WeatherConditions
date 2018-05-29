@@ -233,3 +233,7 @@ a.article, a.article:hover {
 .icone{
     border-radius: 5px;
 }
+
+#pagina{
+    max-width: 100%;
+}

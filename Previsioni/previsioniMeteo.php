@@ -92,6 +92,7 @@ function curl($url) {
         <div class="container">
         <h3>Scegli il grafico da visualizzare:</h3>
         <form action="./Previsioni/grafico.php" method="POST">
+        <input id="c" type="text" name="c" value="'.$weatherArray['city']['name'].'" style="display:none;">
         <select class="form-control" name="sel" id="sel" style="width:50%" onchange="carica()">
 				<option value="Precipitazioni">Precipitazioni</option>
 				<option value="Massima">Temperatura massima</option>

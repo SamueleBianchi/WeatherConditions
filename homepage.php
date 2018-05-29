@@ -16,7 +16,7 @@ header('Location: index.php');
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+        <link rel="icon" href="./icon/favicon.jpg">
         <title>Weather Conditions</title>
 
          <!-- Bootstrap CSS CDN -->
@@ -26,6 +26,9 @@ header('Location: index.php');
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="Javascript/jscript.js"></script>
         <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+
     </head>
     <body>
 
@@ -64,7 +67,7 @@ header('Location: index.php');
                 </ul>
 
                 <ul class="list-unstyled CTAs">
-                    <li><a href="https://github.com/SamueleBianchi/WeatherConditions" class="download">Download source</a></li>
+                    <li><a href="https://github.com/SamueleBianchi/WeatherConditions" class="download">Scarica sorgente</a></li>
                     <li><a href="http://www.irpi.cnr.it/" class="article">IRPI-CNR</a></li>
                 </ul>
             </nav>
