@@ -78,7 +78,7 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
            {
                $("#prev").html(data); // show response from the php script.
                var table = '#mytable';
-        $('#maxRows').on('change',function(){
+               $('#maxRows').on('change',function(){
 		  	$('.pagination').html('');
 		  	var trnum = 0 ;	
 		  	var maxRows = parseInt($(this).val());
@@ -142,8 +142,8 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
            success: function(data)
            {
                caricaGrafico($('select#sel').val(),data);
-                         }
-                       });
+           }
+          });
     }
     
     $(document).on('submit', 'form#archivio', function(evt){
@@ -169,30 +169,46 @@ function caricaGrafico(scelta,data){
     var descrizioneX = "Data e Ora";
     var descrizioneY;
     var descrizioneLabel;
+    var colore;
     var titolo;
-    switch(scelta){
+    
+       switch(scelta){
         case "Massima":
            descrizioneY = "Temperatura massima in °C";
-           descrizioneLabel = "Grafico temperature massime a "+$('#c').val();
+           descrizioneLabel = "Temperature massime a "+$('#c').val();
            titolo = "Grafico temperature massime";
+           colore = "#e62e00";
            for (var i = 0; i < data.length ; i++){
             labels.push(data[i].ora);
             dato.push(data[i].tempMax);
             }
+            grafico(labels,dato,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
             break;
         case "Minima":
-            descrizioneY = "Temperatura minime in °C";
-           descrizioneLabel = "Grafico temperature minime a "+$('#c').val();
+           descrizioneY = "Temperatura minime in °C";
+           descrizioneLabel = "Temperature minime a "+$('#c').val();
            titolo = "Grafico temperature minime";
+           colore = "#3e95cd";
             for (var i = 0; i < data.length ; i++){
             labels.push(data[i].ora);
             dato.push(data[i].tempMin);
             }
+            grafico(labels,dato,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
             break;
-    } 
-     
-    console.log(labels);
-    console.log(dato);
+        case "Umidità":
+           descrizioneY = "Umidita (%)";
+           descrizioneLabel = "Umidità a "+$('#c').val();
+           titolo = "Grafico umidità";
+           colore = "#41caf4";
+           for (var i = 0; i < data.length ; i++){
+            labels.push(data[i].ora);
+            dato.push(data[i].umidità);
+            }
+        grafico(labels,dato,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
+        break;
+    }}
+
+     function grafico(labels, dato, titolo, descrizioneLabel, colore, descrizioneX, descrizioneY){
               $("#grafico").html('<canvas id="line-chart" width="800" height="450"></canvas>');
               new Chart(document.getElementById("line-chart"), {
                 type: 'line',
@@ -201,7 +217,7 @@ function caricaGrafico(scelta,data){
                   datasets: [{ 
                       data: dato,
                       label: descrizioneLabel,
-                      borderColor: "#3e95cd",
+                      borderColor: colore,
                       fill: false
                     }
                   ]
