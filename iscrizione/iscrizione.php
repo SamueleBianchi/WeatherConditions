@@ -30,7 +30,7 @@ $filemat=$email.'.'.$ext;
 
 if ((move_uploaded_file($userfile_tmp,"../foto/".$filemat))&&$pwd==$pwd2){
 
-            $query=$connessione->prepare("INSERT INTO Utenti (IDUtente, nome, cognome, email, pwd, sesso, ente, citta, fotoProfilo) VALUES (:IDUtente, :nome, :cognome, :email, :pwd, :sesso, :ente, :citta, :fotoProfilo)");
+            $query=$connessione->prepare("INSERT INTO utenti (IDUtente, nome, cognome, email, pwd, sesso, ente, citta, fotoProfilo) VALUES (:IDUtente, :nome, :cognome, :email, :pwd, :sesso, :ente, :citta, :fotoProfilo)");
             $query->bindParam(':IDUtente', $IDUtente, PDO::PARAM_INT, 10);
             $query->bindParam(':nome', $nome, PDO::PARAM_STR, 30);
             $query->bindParam(':cognome', $cognome, PDO::PARAM_STR, 40);

@@ -33,11 +33,12 @@ $crea_tb = $connessione->exec("CREATE TABLE IF NOT EXISTS Utenti (
          velocitàVento FLOAT NOT NULL,
          degVento FLOAT NOT NULL,
          nuvole FLOAT NOT NULL,
-         pioggia FLOAT, neve FLOAT,
-         tempo DATE NOT NULL,
+         pioggia FLOAT,
+         neve FLOAT,
+         tempo VARCHAR(50),
          descrizione VARCHAR(50) NOT NULL,
          nota VARCHAR(50) NOT NULL,
-         CodUtente INT(10) NOT null,
+         CodUtente INT(10) NOT NULL,
          PRIMARY KEY (IdArchivio),
          FOREIGN KEY (CodUtente) REFERENCES utenti(IDUtente) 
          )");

@@ -198,14 +198,24 @@ function caricaGrafico(scelta,data){
         case "Umidità":
            descrizioneY = "Umidita (%)";
            descrizioneLabel = "Umidità a "+$('#c').val();
-           titolo = "Grafico umidità";
-           colore = "#41caf4";
+           titolo = "Diagramma umidità (%)";
            for (var i = 0; i < data.length ; i++){
             labels.push(data[i].ora);
             dato.push(data[i].umidità);
             }
-        grafico(labels,dato,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
+        graficoUmidità(labels,dato,titolo,descrizioneLabel,descrizioneX,descrizioneY);
         break;
+        case "Precipitazioni":
+           descrizioneY = "Precipitazioni (mm)";
+           descrizioneLabel = "Precipitazioni a "+$('#c').val();
+           titolo = "Grafico Precipitazioni";
+           colore = "#3e95cd";
+           for (var i = 0; i < data.length ; i++){
+            labels.push(data[i].ora);
+            dato.push(data[i].precipitazioni);
+            }
+            grafico(labels,dato,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
+            break;
     }}
 
      function grafico(labels, dato, titolo, descrizioneLabel, colore, descrizioneX, descrizioneY){
@@ -218,7 +228,7 @@ function caricaGrafico(scelta,data){
                       data: dato,
                       label: descrizioneLabel,
                       borderColor: colore,
-                      fill: false
+                      fill: true
                     }
                   ]
                 },
@@ -244,5 +254,49 @@ function caricaGrafico(scelta,data){
       }
                 }
               });
+              
+}
+
+function graficoUmidità(labels, dato, titolo, descrizioneLabel, descrizioneX, descrizioneY){
+    var array = [];
+    for (var i=0; i<dato.length; i++){
+        array[i]= "#3e95cd";
+    }
+    $("#grafico").html('<canvas id="bar-chart" width="800" height="450"></canvas>');
+    new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: descrizioneLabel,
+          backgroundColor: array,
+          data: dato
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: titolo
+      },
+                  scales: {
+            yAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: descrizioneY
+          }
+        }],
+    xAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: descrizioneX
+          }
+        }]
+
+      }
+    }
+});
 }
 

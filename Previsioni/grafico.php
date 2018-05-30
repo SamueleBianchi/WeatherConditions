@@ -25,7 +25,7 @@
            
        switch ($select1) {
         case 'Precipitazioni':
-            echo 'Precipitazzzzzz'.$città;
+            getGraficoPrecipitazioni($weatherArray);
             break;
         case 'Umidità':
             getGraficoUmidità($weatherArray);
@@ -68,6 +68,18 @@ function getGraficoUmidità($weatherArray){
     
     foreach ($weatherArray['list'] as $ora){
             array_push($array, array('ora' => date("H:i d-m", $ora['dt']), "umidità" => $ora['main']['humidity']));      
+        }
+        
+    $json = json_encode($array);
+    echo $json;
+}
+
+function getGraficoPrecipitazioni($weatherArray){
+    $array = array();
+    
+    foreach ($weatherArray['list'] as $ora){
+        if(isset($ora['rain']['3h']))
+            array_push($array, array('ora' => date("H:i d-m", $ora['dt']), "precipitazioni" => number_format($ora['rain']['3h'], 3, '.', '')));      
         }
         
     $json = json_encode($array);
