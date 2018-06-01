@@ -8,11 +8,7 @@
             <input type="text" class="form-control" id="city" name="city" aria-describedby="city" placeholder="E.g. New York, Tokyo">
           </div>
 
-            <button type="submit" name="submit" id="submit" class="btn btn-primary">Cerca</button>
-            
-          
-      
-      
+            <button type="submit" name="submit" id="submit" class="btn btn-primary">Cerca</button>  
         </form>
          <div name="weather" id="weather" style="margin-top: 20px; position: relative;"></div>
         

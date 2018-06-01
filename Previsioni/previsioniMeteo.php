@@ -1,18 +1,10 @@
 <?php
-function curl($url) {
-        
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-            $data = curl_exec($ch);
-            curl_close($ch);
 
-            return $data;
-        } 
+require '../ChiamataAPI/impostaChiamata.php';
         
        $city=$_POST['city'];
-       $urlContents = curl("http://api.openweathermap.org/data/2.5/forecast?q=$city,it&mode=json&lang=it&appid=b21f3872c8ea3e8d9ffb5acf70cb817f");
+       $città = str_replace(" ", "+",$city);
+       $urlContents = curl("http://api.openweathermap.org/data/2.5/forecast?q=$città,it&mode=json&lang=it&appid=b21f3872c8ea3e8d9ffb5acf70cb817f");
        
        if(strpos($urlContents,"city not found")===false){
            
@@ -94,6 +86,7 @@ function curl($url) {
         <form action="./Previsioni/grafico.php" method="POST">
         <input id="c" type="text" name="c" value="'.$weatherArray['city']['name'].'" style="display:none;">
         <select class="form-control" name="sel" id="sel" style="width:50%" onchange="carica()">
+                                <option>Seleziona</option>
 				<option value="Precipitazioni">Precipitazioni</option>
 				<option value="Massima">Temperatura massima</option>
 				<option value="Minima">Temperatura minima</option>

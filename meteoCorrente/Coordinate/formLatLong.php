@@ -12,12 +12,9 @@
           </div>
 
             <button type="submit" name="submit" id="submit" class="btn btn-primary">Cerca</button>
-            <div name="weather" id="weather" style="margin-top: 20px; position: relative;"></div>
-          
-      
-      
+           
         </form>
-         <div name="weather" id="weather" style="margin-top: 20px; position: relative;"></div>
+          <div name="weather" id="weather" style="margin-top: 20px; position: relative;"></div>  
         
      </div> 
 

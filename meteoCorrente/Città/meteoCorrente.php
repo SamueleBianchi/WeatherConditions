@@ -1,29 +1,14 @@
 <?php
 
 require_once '../gestoreIcone.php';
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-function curl($url) {
-        
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-            $data = curl_exec($ch);
-            curl_close($ch);
-
-            return $data;
-        } 
-        
+require dirname(__FILE__).'/../../ChiamataAPI/impostaChiamata.php';  
         
         if(isset($_POST['city'])){
             
-        $city= $_POST['city'];       
+        $city= $_POST['city']; 
+        $città = str_replace(" ", "+",$city);
         
-        $urlContents = curl("api.openweathermap.org/data/2.5/weather?q=".$city.",it&lang=it&appid=b21f3872c8ea3e8d9ffb5acf70cb817f");
+        $urlContents = curl("api.openweathermap.org/data/2.5/weather?q=".$città.",it&lang=it&appid=b21f3872c8ea3e8d9ffb5acf70cb817f");
         
         if(strpos($urlContents,"city not found")===false){
         $weatherArray = json_decode($urlContents, true);
@@ -76,7 +61,7 @@ function curl($url) {
         if(isset($weatherArray['wind']['deg'])){
             $deg=$weatherArray['wind']['deg'];
         }else{
-            $deg= "Non disponibile";
+            $deg= 0;
         }
             
         if(isset($weatherArray['snow'])){
@@ -124,7 +109,7 @@ function curl($url) {
                         . '<input type="text" class="form-control" value="'.$pioggia.'" name="pioggia" id="pioggia">'
                         . '<input type="text" class="form-control" value="'.$neve.'" name="neve" id="neve">'
                         . '<input type="text" class="form-control" value="'.$speedInMPH.'" name="velocitàVento" id="velocitàVento">'
-                        . '<input type="datetime-local" class="form-control" value="'.$deg.'" name="degVento" id="degVento">'
+                        . '<input type="text" class="form-control" value="'.$deg.'" name="degVento" id="degVento">'
                         . '<input type="text" class="form-control" value="'.$dataUTC.'" name="tempo" id="tempo">'
                         . '<input type="text" class="form-control" value="'.$descrizione.'" name="descrizione" id="descrizione">'
                         . '</div><br>'

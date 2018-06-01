@@ -31,7 +31,6 @@ if($degVento === "Non disponibile"){
 }else{
     $deg = $degVento;
 }
-
 $sql = "SELECT * FROM archivio, utenti WHERE utenti.IDUtente = $IDUtente AND archivio.tempo = '$tempo' AND archivio.citta = '$città'";
 $risultato = $connessione->query($sql);
 $num = $risultato->rowCount();

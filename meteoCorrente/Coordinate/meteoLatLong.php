@@ -1,18 +1,7 @@
 <?php
 
 require_once '../gestoreIcone.php';
-function curl($url) {
-        
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-            $data = curl_exec($ch);
-            curl_close($ch);
-
-            return $data;
-        } 
-        
+require dirname(__FILE__).'/../../ChiamataAPI/impostaChiamata.php';  
         
         if(isset($_POST['lat']) && isset($_POST['lon'])){
             
@@ -21,7 +10,7 @@ function curl($url) {
         
         $urlContents = curl("http://api.openweathermap.org/data/2.5/weather?&lat=".$lat."&lon=".$l."&appid=b21f3872c8ea3e8d9ffb5acf70cb817f");
         
-        if(strpos($urlContents,"city not found")===false){
+        if(strpos($urlContents,"is not a float")===false){
         $weatherArray = json_decode($urlContents, true);
         
         
@@ -53,7 +42,7 @@ function curl($url) {
         if(isset($weatherArray['rain']['3h'])){
             $pioggia = $weatherArray['rain']['3h'];
         }else{
-            $pioggia = "0";
+            $pioggia = 0;
         }
         
         if(isset($weatherArray['main']["pressure"])){
@@ -72,7 +61,7 @@ function curl($url) {
         if(isset($weatherArray['wind']['deg'])){
             $deg=$weatherArray['wind']['deg'];
         }else{
-            $deg= "Non disponibile";
+            $deg= 0;
         }
             
         if(isset($weatherArray['snow'])){
@@ -102,8 +91,29 @@ function curl($url) {
             
             if($weather) {
                 
-                echo '<div class="alert alert-info" role="alert">'.$weather.'</div>';
-                
+                echo '<div class="alert alert-info" role="alert">'.$weather.'</div><div id="alert" style="display : none;"></div><label for="nota">Aggiungi una nota:</label>'
+  
+                    .'<form id="archivio" action="./archivio/archivio.php" method="post">'
+                        . '<textarea class="form-control" type="text" rows="5" name="nota" id="nota" placeholder="Aggiungi una nota" required>'
+                        . '</textarea>'
+                        . '<div style="display: none;">'
+                        . '<input type="text" class="form-control" value="'.$nome.'" name="città" id="città">'
+                        . '<input type="text" class="form-control" value="'.$tempInCelsius.'" name="temp" id="temp">'
+                        . '<input type="text" class="form-control" value="'.$temp_max.'" name="tempMax" id="tempMax">'
+                        . '<input type="text" class="form-control" value="'.$temp_min.'" name="tempMin" id="tempMin">'
+                        . '<input type="text" class="form-control" value="'.$clouds.'" name="nuvole" id="nuvole">'
+                        . '<input type="text" class="form-control" value="'.$pressione.'" name="pressione" id="pressione">'
+                        . '<input type="text" class="form-control" value="'.$umidità.'" name="umidità" id="umidità">'
+                        . '<input type="text" class="form-control" value="'.$pioggia.'" name="pioggia" id="pioggia">'
+                        . '<input type="text" class="form-control" value="'.$neve.'" name="neve" id="neve">'
+                        . '<input type="text" class="form-control" value="'.$speedInMPH.'" name="velocitàVento" id="velocitàVento">'
+                        . '<input type="text" class="form-control" value="'.$deg.'" name="degVento" id="degVento">'
+                        . '<input type="text" class="form-control" value="'.$dataUTC.'" name="tempo" id="tempo">'
+                        . '<input type="text" class="form-control" value="'.$descrizione.'" name="descrizione" id="descrizione">'
+                        . '</div><br>'
+                        . '<button type="submit" class="btn btn-danger">Aggiungi</button>'
+                    . '</form>';
+               
             }
         }else{
             echo '<div class="alert alert-danger" role="alert"><strong>Errore :&nbsp</strong>impossbile trovare la città ricercata</div>';
