@@ -1,9 +1,8 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * 
+ * @param type $url URL della chiamata all'api (con key)
+ * @return type $data il file JSON con le informazioni richieste
  */
 function curl($url) {
         

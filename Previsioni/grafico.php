@@ -6,8 +6,12 @@ require dirname(__FILE__).'/../ChiamataAPI/impostaChiamata.php';
     $select1 = $_POST['sel'];
         
        $urlContents = curl("http://api.openweathermap.org/data/2.5/forecast?q=$città,it&mode=json&lang=it&appid=b21f3872c8ea3e8d9ffb5acf70cb817f");
-       $weatherArray = json_decode($urlContents, true);
-           
+       $weatherArray = json_decode($urlContents, true);//decodifico il JSON
+       
+       /*
+        * A seconda di quale option è stata selezionata dal client eseguo una eterminata funzione che elaborerà un JSON
+        * apposito utilizzato dal client che provvederà a decodificarlo per riempire i grafici
+        */
        switch ($select1) {
         case 'Precipitazioni':
             getGraficoPrecipitazioni($weatherArray);

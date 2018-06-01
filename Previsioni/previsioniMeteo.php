@@ -3,7 +3,7 @@
 require '../ChiamataAPI/impostaChiamata.php';
         
        $city=$_POST['city'];
-       $città = str_replace(" ", "+",$city);
+       $città = str_replace(" ", "+",$city);//sostituisco lo spazio con il carattere + per poter ricercare anche le città che hanno piu di una parola
        $urlContents = curl("http://api.openweathermap.org/data/2.5/forecast?q=$città,it&mode=json&lang=it&appid=b21f3872c8ea3e8d9ffb5acf70cb817f");
        
        if(strpos($urlContents,"city not found")===false){

@@ -6,15 +6,11 @@
  * and open the template in the editor.
  */
 require "../db/dbconnect.php";
+require dirname(__FILE__).'/../Filtro/filtro.php';  
 
-$email=$_POST["email"];
-$password=$_POST["password"];
+$email= filtra($_POST["email"]);
+$password=filtra($_POST["password"]);
 
-//$query = $connessione->prepare("SELECT * FROM utenti WHERE email = :email and pwd = :pwd");
-//$query->bindParam(':email', $email, PDO::PARAM_STR, 64);
-//$query->bindParam(':pwd', $password, PDO::PARAM_STR, 30);
-//$query->execute();
-//$risultato= $query->fetchAll();
 $query="SELECT * FROM utenti WHERE email = '$email' AND pwd = '$password'";
 $risultato = $connessione->query($query);
 foreach ($connessione->query($query) as $row) {

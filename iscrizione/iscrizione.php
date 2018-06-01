@@ -5,17 +5,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+require dirname(__FILE__).'/../Filtro/filtro.php';  
 require "../db/dbconnect.php";
 
-$nome=$_POST['nome'];
-$cognome=$_POST['cognome'];
-$pwd=$_POST['pwd'];
-$pwd2=$_POST['pwd2'];
-$email=$_POST['email'];
-$sesso=$_POST['sesso'];
-$ente=$_POST['ente'];
-$città=$_POST['città'];
+//sanifioc i vari dati immessi dall'utente
+$nome= filtra($_POST['nome']);
+$cognome=filtra($_POST['cognome']);
+$pwd=filtra($_POST['pwd']);
+$pwd2=filtra($_POST['pwd2']);
+$email=filtra($_POST['email']);
+$sesso=filtra($_POST['sesso']);
+$ente=filtra($_POST['ente']);
+$città=filtra($_POST['città']);
 $IDUtente="";
 
 //Recupero il percorso temporaneo del file

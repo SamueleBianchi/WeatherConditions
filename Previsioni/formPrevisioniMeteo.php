@@ -1,3 +1,5 @@
+<!-- Questo pezzo di html viene caricato sulla pagina principale dal Javascript, per effettuare le richieste al server web mediante l'apposita form -->
+
 <div class="container">
   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

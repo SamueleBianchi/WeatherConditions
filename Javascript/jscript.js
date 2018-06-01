@@ -3,6 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+/**
+ * A seconda di quale tag "li" si clicca viene caricata la pagina corrispondente, ogni tag li è 
+ * identificato dal corrispettivo id
+ */
 $(document).ready(function(){
    $('li').click(function(){   
     switch($(this).attr("id")){
@@ -41,6 +46,9 @@ $(document).ready(function(){
     });
    
 });
+/**
+ * Al submit del form per il meteo corrente effettuo una chiamata POST per ottenere i dati metereologici, passando come parametro la città
+ */
 $(document).on('submit', 'form#meteo_Corrente', function(evt){
          $.ajax({
            type: "POST",
@@ -54,7 +62,9 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
 
     evt.preventDefault(); 
     });
-    
+/**
+ * Al submit del form per il meteo corrente effettuo una chiamata POST per ottenere i dati metereologici, passando come parametri latitudine e longitudine
+ */    
     $(document).on('submit', 'form#form_latLong', function(evt){
          $.ajax({
            type: "POST",
@@ -68,7 +78,9 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
 
     evt.preventDefault(); 
     });
-    
+/*
+ * Paginazione delle previsioni visualizzate nella tabella
+ */    
     $(document).on('submit', 'form#previsioni', function(evt){
          $.ajax({
            type: "POST",
@@ -116,7 +128,9 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
 
     evt.preventDefault(); 
     });
-    
+/*
+ * Submit della form per aggiornare il profilo
+ */
     $(document).on('submit', 'form#aggiornaProfilo', function(evt){
          $.ajax({
            type: "POST",
@@ -132,7 +146,9 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
 
     evt.preventDefault(); 
     });
-    
+/*
+ * funzione invocata nell'onChange della select per la visualizzazione del grafico
+ */    
     function carica(){   
     $.ajax({
            type: "POST",
@@ -171,7 +187,8 @@ function caricaGrafico(scelta,data){
     var descrizioneLabel;
     var colore;
     var titolo;
-    
+//A seconda di quale <option> è stata selezionata organizzo le varibili di output e popolo i due array per le ascisse e le coordinate del grafico
+//decodificando il JSON creato dal server
        switch(scelta){
         case "Massima":
            descrizioneY = "Temperatura massima in °C";
@@ -230,7 +247,7 @@ function caricaGrafico(scelta,data){
             graficoMaxMin(labels,dato,dato2,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
             break;
     }}
-
+//Grafico generale a linee
      function grafico(labels, dato, titolo, descrizioneLabel, colore, descrizioneX, descrizioneY){
               $("#grafico").html('<canvas id="line-chart" width="800" height="450"></canvas>');
               new Chart(document.getElementById("line-chart"), {
@@ -269,7 +286,7 @@ function caricaGrafico(scelta,data){
               });
               
 }
-
+//Grafico per l'umidità (diagramma a barre)
 function graficoUmidità(labels, dato, titolo, descrizioneLabel, descrizioneX, descrizioneY){
     var array = [];
     for (var i=0; i<dato.length; i++){
