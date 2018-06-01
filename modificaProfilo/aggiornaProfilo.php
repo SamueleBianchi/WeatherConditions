@@ -6,15 +6,17 @@
  * and open the template in the editor.
  */
 require '../db/dbconnect.php';
+require dirname(__FILE__).'/../Filtro/filtro.php';
+
 session_start();
 
-$nuovoNome = $_POST['nome'];
-$nuovoCognome = $_POST['cognome'];
-$nuovaEmail = $_POST['email'];
-$nuovaPassword = $_POST['pwd'];
-$nuovoEnte = $_POST['ente'];
-$nuovaCittà = $_POST['città'];
-$nuovoSesso = $_POST['sesso'];
+$nuovoNome = filtra($_POST['nome']);
+$nuovoCognome = filtra($_POST['cognome']);
+$nuovaEmail = filtra($_POST['email']);
+$nuovaPassword = filtra($_POST['pwd']);
+$nuovoEnte = filtra($_POST['ente']);
+$nuovaCittà = filtra($_POST['città']);
+$nuovoSesso = filtra($_POST['sesso']);
 
 
 $userfile_tmp = $_FILES['userfile']['tmp_name'];

@@ -1,16 +1,17 @@
 <?php
 
 require_once '../gestoreIcone.php';
-require dirname(__FILE__).'/../../ChiamataAPI/impostaChiamata.php';  
+require dirname(__FILE__).'/../../ChiamataAPI/impostaChiamata.php'; 
+require dirname(__FILE__).'/../../Filtro/filtro.php';
         
         if(isset($_POST['lat']) && isset($_POST['lon'])){
             
-        $lat= $_POST['lat'];
-        $l=$_POST['lon'];
+        $lat= filtra($_POST['lat']);
+        $l= filtra($_POST['lon']);
         
         $urlContents = curl("http://api.openweathermap.org/data/2.5/weather?&lat=".$lat."&lon=".$l."&appid=b21f3872c8ea3e8d9ffb5acf70cb817f");
-        
-        if(strpos($urlContents,"is not a float")===false){
+        $temp = json_decode($urlContents, true);
+        if(($temp['cod'])!=="400"){
         $weatherArray = json_decode($urlContents, true);
         
         

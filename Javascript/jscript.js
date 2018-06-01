@@ -216,6 +216,19 @@ function caricaGrafico(scelta,data){
             }
             grafico(labels,dato,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
             break;
+        case "MaxMin":
+           var dato2 = [];
+           descrizioneY = "Temperature in C°";
+           descrizioneLabel = "Temperature massime a "+$('#c').val();
+           titolo = "Temperature massime e minime a confronto";
+           colore = "#f44b42";
+           for (var i = 0; i < data.length ; i++){
+            labels.push(data[i].ora);
+            dato.push(data[i].tempMax);
+            dato2.push(data[i].tempMin);
+            }
+            graficoMaxMin(labels,dato,dato2,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
+            break;
     }}
 
      function grafico(labels, dato, titolo, descrizioneLabel, colore, descrizioneX, descrizioneY){
@@ -300,3 +313,45 @@ function graficoUmidità(labels, dato, titolo, descrizioneLabel, descrizioneX, d
 });
 }
 
+function graficoMaxMin(labels, dato, dato2, titolo, descrizioneLabel, colore, descrizioneX, descrizioneY){
+              $("#grafico").html('<canvas id="line-chart" width="800" height="450"></canvas>');
+              new Chart(document.getElementById("line-chart"), {
+                type: 'line',
+                data: {
+                  labels: labels,
+                  datasets: [{ 
+                      data: dato,
+                      label: descrizioneLabel,
+                      borderColor: colore,
+                      fill: false
+                    }, {data: dato2,
+                      label: "Temperature minime a "+$('#c').val(),
+                      borderColor: "#7f7fff",
+                      fill: false
+                    }                    
+                  ]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: titolo
+                  },
+                  scales: {
+            yAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: descrizioneY
+          }
+        }],
+    xAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: descrizioneX
+          }
+        }]
+
+      }
+                }
+              });
+              
+}

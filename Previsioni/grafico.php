@@ -21,6 +21,9 @@ require dirname(__FILE__).'/../ChiamataAPI/impostaChiamata.php';
         case 'Massima':
             getGraficoMax($weatherArray);
             break;
+        case 'MaxMin':
+            getGraficoMaxMin($weatherArray);
+            break;
         default:
             # code...
             break;
@@ -65,6 +68,17 @@ function getGraficoPrecipitazioni($weatherArray){
     foreach ($weatherArray['list'] as $ora){
         if(isset($ora['rain']['3h']))
             array_push($array, array('ora' => date("H:i d-m", $ora['dt']), "precipitazioni" => number_format($ora['rain']['3h'], 3, '.', '')));      
+        }
+        
+    $json = json_encode($array);
+    echo $json;
+}
+
+function getGraficoMaxMin($weatherArray){
+    $array = array();
+    
+    foreach ($weatherArray['list'] as $ora){
+            array_push($array, array('ora' => date("H:i d-m", $ora['dt']), "tempMax" => number_format((float)$ora['main']['temp_max']-273.15, 3, '.', ''), "tempMin" =>number_format((float)$ora['main']['temp_min']-273.15, 3, '.', '')));      
         }
         
     $json = json_encode($array);

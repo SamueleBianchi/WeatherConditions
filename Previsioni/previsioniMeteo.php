@@ -90,6 +90,7 @@ require '../ChiamataAPI/impostaChiamata.php';
 				<option value="Precipitazioni">Precipitazioni</option>
 				<option value="Massima">Temperatura massima</option>
 				<option value="Minima">Temperatura minima</option>
+                                <option value="MaxMin">Temperatura massima e minima</option>
 				<option value="Umidità">Umidità</option>
             </select> 
             <div id="grafico"></div>

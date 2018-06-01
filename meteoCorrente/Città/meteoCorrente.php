@@ -2,10 +2,11 @@
 
 require_once '../gestoreIcone.php';
 require dirname(__FILE__).'/../../ChiamataAPI/impostaChiamata.php';  
-        
+require dirname(__FILE__).'/../../Filtro/filtro.php';  
+ 
         if(isset($_POST['city'])){
             
-        $city= $_POST['city']; 
+        $city= filtra($_POST['city']); 
         $città = str_replace(" ", "+",$city);
         
         $urlContents = curl("api.openweathermap.org/data/2.5/weather?q=".$città.",it&lang=it&appid=b21f3872c8ea3e8d9ffb5acf70cb817f");
