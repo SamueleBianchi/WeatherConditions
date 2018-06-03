@@ -52,7 +52,7 @@ header('Location: index.php');
                         </ul>
                     </li>
                     <li id="previsioni">
-                        <a href="#"><span class="glyphicon glyphicon-stats"></span> Previsioni Meteo</a>
+                        <a href="#"><span class="glyphicon glyphicon-stats"></span>  Metereological Data Monitoring</a>
                     </li>
                     <li>
                         <a href="./myMaps/maps.php"><i class="material-icons" style="font-size:20px;">map</i>  My Maps</a>

@@ -92,6 +92,7 @@ require '../ChiamataAPI/impostaChiamata.php';
 				<option value="Minima">Temperatura minima</option>
                                 <option value="MaxMin">Temperatura massima e minima</option>
 				<option value="Umidità">Umidità</option>
+                                <option value="Nuvolosità">Nuvolosità</option>
             </select> 
             <div id="grafico"></div>
             </div>

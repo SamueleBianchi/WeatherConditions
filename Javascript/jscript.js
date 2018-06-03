@@ -216,11 +216,12 @@ function caricaGrafico(scelta,data){
            descrizioneY = "Umidita (%)";
            descrizioneLabel = "Umidità a "+$('#c').val();
            titolo = "Diagramma umidità (%)";
+           colore = "#3e95cd";
            for (var i = 0; i < data.length ; i++){
             labels.push(data[i].ora);
             dato.push(data[i].umidità);
             }
-        graficoUmidità(labels,dato,titolo,descrizioneLabel,descrizioneX,descrizioneY);
+        graficoUmidità(labels,dato,titolo,descrizioneLabel, colore, descrizioneX,descrizioneY, );
         break;
         case "Precipitazioni":
            descrizioneY = "Precipitazioni (mm)";
@@ -245,6 +246,18 @@ function caricaGrafico(scelta,data){
             dato2.push(data[i].tempMin);
             }
             graficoMaxMin(labels,dato,dato2,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
+            break;
+        case "Nuvolosità":
+           var dato2 = [];
+           descrizioneY = "Nuvolosità (%)";
+           descrizioneLabel = "Nuvolosità (%) a "+$('#c').val();
+           titolo = "Andamento Nuvolosità";
+           colore = "#92e3ef";
+           for (var i = 0; i < data.length ; i++){
+            labels.push(data[i].ora);
+            dato.push(data[i].nuvolosità);
+            }
+            graficoUmidità(labels,dato,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
             break;
     }}
 //Grafico generale a linee
@@ -287,10 +300,10 @@ function caricaGrafico(scelta,data){
               
 }
 //Grafico per l'umidità (diagramma a barre)
-function graficoUmidità(labels, dato, titolo, descrizioneLabel, descrizioneX, descrizioneY){
+function graficoUmidità(labels, dato, titolo, descrizioneLabel,colore, descrizioneX, descrizioneY){
     var array = [];
     for (var i=0; i<dato.length; i++){
-        array[i]= "#3e95cd";
+        array[i]= colore;
     }
     $("#grafico").html('<canvas id="bar-chart" width="800" height="450"></canvas>');
     new Chart(document.getElementById("bar-chart"), {

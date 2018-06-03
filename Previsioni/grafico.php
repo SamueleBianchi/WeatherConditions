@@ -9,7 +9,7 @@ require dirname(__FILE__).'/../ChiamataAPI/impostaChiamata.php';
        $weatherArray = json_decode($urlContents, true);//decodifico il JSON
        
        /*
-        * A seconda di quale option è stata selezionata dal client eseguo una eterminata funzione che elaborerà un JSON
+        * A seconda di quale option è stata selezionata dal client eseguo una determinata funzione che elabora un JSON
         * apposito utilizzato dal client che provvederà a decodificarlo per riempire i grafici
         */
        switch ($select1) {
@@ -27,6 +27,9 @@ require dirname(__FILE__).'/../ChiamataAPI/impostaChiamata.php';
             break;
         case 'MaxMin':
             getGraficoMaxMin($weatherArray);
+            break;
+        case 'Nuvolosità':
+            getGraficoNuvolosità($weatherArray);
             break;
         default:
             # code...
@@ -83,6 +86,17 @@ function getGraficoMaxMin($weatherArray){
     
     foreach ($weatherArray['list'] as $ora){
             array_push($array, array('ora' => date("H:i d-m", $ora['dt']), "tempMax" => number_format((float)$ora['main']['temp_max']-273.15, 3, '.', ''), "tempMin" =>number_format((float)$ora['main']['temp_min']-273.15, 3, '.', '')));      
+        }
+        
+    $json = json_encode($array);
+    echo $json;
+}
+
+function getGraficoNuvolosità($weatherArray){
+    $array = array();
+    
+    foreach ($weatherArray['list'] as $ora){
+            array_push($array, array('ora' => date("H:i d-m", $ora['dt']), "nuvolosità" => $ora['clouds']['all']));      
         }
         
     $json = json_encode($array);

@@ -52,16 +52,6 @@ and open the template in the editor.
             
             <input name="list" id="input" list="cities" oninput='onInput()' placeholder="Search for cities..."/>
             <datalist id="cities"></datalist>
-            
-<!--            <div id="dati">
-                <div id="vista"></div>
-                <div id="call">
-                    <form action="index.php" method="post">
-                        <input type="text" name="ID" id="ja"/>
-                        <input id="butCall" type="submit" name="someAction"/>
-                    </form>
-                </div>
-            </div>-->
         </div>
   
         <div class="icona">

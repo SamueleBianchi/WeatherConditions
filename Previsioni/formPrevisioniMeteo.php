@@ -6,7 +6,7 @@
   <script src="jquery.min.js"></script>
   <link href="bootstrap.min.css" rel="stylesheet"/>
    <script src="bootstrap.min.js"></script>
-        <h2>Previsioni Meteo</h2>
+        <h2>Metereological Data Monitoring</h2>
          
         <form name="previsioni" id="previsioni" method="POST" action="./Previsioni/previsioniMeteo.php">
           <div class="form-group">
