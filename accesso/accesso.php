@@ -11,7 +11,7 @@ require dirname(__FILE__).'/../Filtro/filtro.php';
 $email= filtra($_POST["email"]);
 $password=filtra($_POST["password"]);
 
-$query="SELECT * FROM utenti WHERE email = '$email' AND pwd = '$password'";
+$query="SELECT * FROM utenti WHERE email = '$email' AND pwd = MD5('".$password."')";
 $risultato = $connessione->query($query);
 foreach ($connessione->query($query) as $row) {
         $foto =  $row['fotoProfilo'];

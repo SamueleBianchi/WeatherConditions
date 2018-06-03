@@ -6,9 +6,9 @@
         <form id="form_latLong" method="POST" action="./meteoCorrente/Coordinate/meteoLatLong.php">
           <div class="form-group">
             <br><label for="lat">Inserisci la latitudine</label>
-            <input type="text" class="form-control" id="lat" name="lat" aria-describedby="lat" placeholder="Ad esempio 12" style="width: 30%;">
+            <input type="text" class="form-control" id="lat" name="lat" aria-describedby="lat" placeholder="Ad esempio 12" style="width: 30%;" required>
             <label for="lon">Inserisci la longitudine</label>
-            <input type="text" class="form-control" id="lon" name="lon" aria-describedby="lon" placeholder="Ad esempio 42" style="width: 30%;">
+            <input type="text" class="form-control" id="lon" name="lon" aria-describedby="lon" placeholder="Ad esempio 42" style="width: 30%;" required>
           </div>
 
             <button type="submit" name="submit" id="submit" class="btn btn-primary">Cerca</button>

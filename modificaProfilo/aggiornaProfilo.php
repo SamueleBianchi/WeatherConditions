@@ -30,8 +30,9 @@ $filemat=$nuovaEmail.'.'.$ext;
 
 if (unlink("../foto/".$_SESSION['fotoProfilo'])) {
  if (move_uploaded_file($userfile_tmp,"../foto/".$filemat)){
-$query = "UPDATE utenti SET nome = '".$nuovoNome."', cognome = '".$nuovoCognome."',email = '".$nuovaEmail."',pwd = '".$nuovaPassword."',ente = '".$nuovoEnte."',citta = '".$nuovaCittà."', fotoProfilo = '".$filemat."' WHERE IDUtente = ".$_SESSION['IDUtente'];
+$query = "UPDATE utenti SET nome = '".$nuovoNome."', cognome = '".$nuovoCognome."',email = '".$nuovaEmail."',pwd = MD5('".$nuovaPassword."'),ente = '".$nuovoEnte."',citta = '".$nuovaCittà."', fotoProfilo = '".$filemat."' WHERE IDUtente = ".$_SESSION['IDUtente'];
 $connessione->exec($query);
+$_SESSION['fotoProfilo'] = $filemat;
 $_SESSION['nome'] = $nuovoNome;
 $_SESSION['email'] = $nuovaEmail;
 header('Location: ../homepage.php');

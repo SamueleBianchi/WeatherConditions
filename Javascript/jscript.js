@@ -182,7 +182,7 @@ $(document).on('submit', 'form#meteo_Corrente', function(evt){
     
 function caricaGrafico(scelta,data){
     var labels = [], dato = [];
-    var descrizioneX = "Data e Ora";
+    var descrizioneX = "Ora e data";
     var descrizioneY;
     var descrizioneLabel;
     var colore;
@@ -259,6 +259,30 @@ function caricaGrafico(scelta,data){
             }
             graficoUmidità(labels,dato,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
             break;
+        case "Pressione":
+           var dato2 = [];
+           descrizioneY = "Pressione (hPa)";
+           descrizioneLabel = "Pressione (hPa) a "+$('#c').val();
+           titolo = "Monitoring Pressioni";
+           colore = "#41f444";
+           for (var i = 0; i < data.length ; i++){
+            labels.push(data[i].ora);
+            dato.push(data[i].pressione);
+            }
+            grafico(labels,dato,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
+            break;
+        case "VelVento":
+           var dato2 = [];
+           descrizioneY = "Velocità vento (m/s)";
+           descrizioneLabel = "Velocità vento (m/s) a "+$('#c').val();
+           titolo = "Monitoring della velocità del vento";
+           colore = "#d9f442";
+           for (var i = 0; i < data.length ; i++){
+            labels.push(data[i].ora);
+            dato.push(data[i].vento);
+            }
+            grafico(labels,dato,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
+            break;
     }}
 //Grafico generale a linee
      function grafico(labels, dato, titolo, descrizioneLabel, colore, descrizioneX, descrizioneY){
@@ -271,7 +295,8 @@ function caricaGrafico(scelta,data){
                       data: dato,
                       label: descrizioneLabel,
                       borderColor: colore,
-                      fill: true
+                      fill: true,
+                      lineTension: 0
                     }
                   ]
                 },

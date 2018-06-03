@@ -31,6 +31,12 @@ require dirname(__FILE__).'/../ChiamataAPI/impostaChiamata.php';
         case 'Nuvolosità':
             getGraficoNuvolosità($weatherArray);
             break;
+        case 'Pressione':
+            getGraficoPressione($weatherArray);
+            break;
+        case 'VelVento':
+            getGraficoVento($weatherArray);
+            break;
         default:
             # code...
             break;
@@ -97,6 +103,28 @@ function getGraficoNuvolosità($weatherArray){
     
     foreach ($weatherArray['list'] as $ora){
             array_push($array, array('ora' => date("H:i d-m", $ora['dt']), "nuvolosità" => $ora['clouds']['all']));      
+        }
+        
+    $json = json_encode($array);
+    echo $json;
+}
+
+function getGraficoPressione($weatherArray){
+    $array = array();
+    
+    foreach ($weatherArray['list'] as $ora){
+            array_push($array, array('ora' => date("H:i d-m", $ora['dt']), "pressione" => $ora['main']['pressure']));      
+        }
+        
+    $json = json_encode($array);
+    echo $json;
+}
+
+function getGraficoVento($weatherArray){
+    $array = array();
+    
+    foreach ($weatherArray['list'] as $ora){
+            array_push($array, array('ora' => date("H:i d-m", $ora['dt']), "vento" => $ora['wind']['speed']));      
         }
         
     $json = json_encode($array);

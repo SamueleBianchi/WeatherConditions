@@ -5,7 +5,7 @@
         <form id="meteo_Corrente" method="POST" action="./meteoCorrente/Città/meteoCorrente.php">
           <div class="form-group">
             <label for="city">Scrivi il nome della città da ricercare</label>
-            <input type="text" class="form-control" id="city" name="city" aria-describedby="city" placeholder="E.g. New York, Tokyo">
+            <input type="text" class="form-control" id="city" name="city" aria-describedby="city" placeholder="E.g. New York, Tokyo" required>
           </div>
 
             <button type="submit" name="submit" id="submit" class="btn btn-primary">Cerca</button>  

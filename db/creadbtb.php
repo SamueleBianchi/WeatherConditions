@@ -13,7 +13,7 @@ $crea_tb = $connessione->exec("CREATE TABLE IF NOT EXISTS Utenti (
     nome varchar(30) NOT NULL,
     cognome varchar(40) NOT NULL,
     email varchar(64) NOT NULL,
-    pwd varchar(30) NOT NULL,
+    pwd varchar(32) NOT NULL,
     sesso varchar(30) NOT NULL,
     ente varchar(64) NOT NULL,
     citta varchar(64) NOT NULL,

@@ -9,7 +9,7 @@ require dirname(__FILE__).'/../../Filtro/filtro.php';
         $lat= filtra($_POST['lat']);
         $l= filtra($_POST['lon']);
         
-        $urlContents = curl("http://api.openweathermap.org/data/2.5/weather?&lat=".$lat."&lon=".$l."&appid=b21f3872c8ea3e8d9ffb5acf70cb817f");
+        $urlContents = curl("http://api.openweathermap.org/data/2.5/weather?&lat=".$lat."&lon=".$l."&lang=it&appid=b21f3872c8ea3e8d9ffb5acf70cb817f");
         $temp = json_decode($urlContents, true);
         if(($temp['cod'])!=="400"){
         $weatherArray = json_decode($urlContents, true);

@@ -37,7 +37,7 @@ echo '<div id="success" style="display:none;" class="alert alert-success"></div>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input style="width: 30%;" type="password" class="form-control"  value="'.$pwd.'" name="pwd" id="pwd" required="true">
+      <input style="width: 30%;" type="password" class="form-control" name="pwd" id="pwd" required="true">
     </div>
     <div class="form-group">
     <label for="sesso">Sesso</label>
