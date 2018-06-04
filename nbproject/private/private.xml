@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="PHP">
-            <file>file:/C:/xampp/htdocs/WeatherConditions/archivio/archivio.php</file>
             <file>file:/C:/xampp/htdocs/WeatherConditions/Previsioni/previsioniMeteo.php</file>
-            <file>file:/C:/xampp/htdocs/WeatherConditions/accesso/accesso.php</file>
-            <file>file:/C:/xampp/htdocs/WeatherConditions/meteoCorrente/Città/formMeteoCorrente.php</file>
             <file>file:/C:/xampp/htdocs/WeatherConditions/Previsioni/grafico.php</file>
-            <file>file:/C:/xampp/htdocs/WeatherConditions/meteoCorrente/Città/meteoCorrente.php</file>
+            <file>file:/C:/xampp/htdocs/WeatherConditions/Javascript/jscript.js</file>
         </group>
     </open-files>
 </project-private>

@@ -37,6 +37,9 @@ require dirname(__FILE__).'/../ChiamataAPI/impostaChiamata.php';
         case 'VelVento':
             getGraficoVento($weatherArray);
             break;
+        case 'umidprec':
+            getGraficoUmidPrec($weatherArray);
+            break;
         default:
             # code...
             break;
@@ -125,6 +128,22 @@ function getGraficoVento($weatherArray){
     
     foreach ($weatherArray['list'] as $ora){
             array_push($array, array('ora' => date("H:i d-m", $ora['dt']), "vento" => $ora['wind']['speed']));      
+        }
+        
+    $json = json_encode($array);
+    echo $json;
+}
+
+function getGraficoUmidPrec($weatherArray){
+    $array = array();
+    
+    foreach ($weatherArray['list'] as $ora){
+        if(isset($ora['rain']['3h'])){
+            array_push($array, array('ora' => date("H:i d-m", $ora['dt']), "precipitazioni" => number_format($ora['rain']['3h'], 3, '.', ''), "umidità" => $ora['main']['humidity']));      
+    }else{
+        array_push($array, array('ora' => date("H:i d-m", $ora['dt']), "precipitazioni" => 0, "umidità" => $ora['main']['humidity']));      
+    }
+    
         }
         
     $json = json_encode($array);

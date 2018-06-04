@@ -283,9 +283,23 @@ function caricaGrafico(scelta,data){
             }
             grafico(labels,dato,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
             break;
+        case "umidprec":
+           var dato2 = [];
+           descrizioneY = "Precipitazioni (mm)";
+           descrizioneLabel = "Precipitazioni a "+$('#c').val();
+           titolo = "Precipitazioni (mm)";
+           colore = "#e62e00";
+           for (var i = 0; i < data.length ; i++){
+            labels.push(data[i].ora);
+            dato.push(data[i].precipitazioni);
+            dato2.push(data[i].umidità);
+            }
+            grafici(labels,dato,dato2,titolo,descrizioneLabel,colore,descrizioneX,descrizioneY);
+            break;
     }}
 //Grafico generale a linee
      function grafico(labels, dato, titolo, descrizioneLabel, colore, descrizioneX, descrizioneY){
+         $("#grafico2").empty();
               $("#grafico").html('<canvas id="line-chart" width="800" height="450"></canvas>');
               new Chart(document.getElementById("line-chart"), {
                 type: 'line',
@@ -326,6 +340,7 @@ function caricaGrafico(scelta,data){
 }
 //Grafico per l'umidità (diagramma a barre)
 function graficoUmidità(labels, dato, titolo, descrizioneLabel,colore, descrizioneX, descrizioneY){
+    $("#grafico2").empty();
     var array = [];
     for (var i=0; i<dato.length; i++){
         array[i]= colore;
@@ -369,6 +384,7 @@ function graficoUmidità(labels, dato, titolo, descrizioneLabel,colore, descrizi
 }
 
 function graficoMaxMin(labels, dato, dato2, titolo, descrizioneLabel, colore, descrizioneX, descrizioneY){
+    $("#grafico2").empty();
               $("#grafico").html('<canvas id="line-chart" width="800" height="450"></canvas>');
               new Chart(document.getElementById("line-chart"), {
                 type: 'line',
@@ -410,3 +426,82 @@ function graficoMaxMin(labels, dato, dato2, titolo, descrizioneLabel, colore, de
               });
               
 }
+
+function grafici(labels, dato, dato2,  titolo, descrizioneLabel, colore, descrizioneX, descrizioneY){
+              $("#grafico").html('<canvas id="line-chart" width="400" height="250" style="float: left;"></canvas>');
+              $("#grafico2").html('<canvas id="line-chart2" width="400" height="250" style="float: right;"></canvas>');
+              new Chart(document.getElementById("line-chart"), {
+                type: 'line',
+                data: {
+                  labels: labels,
+                  datasets: [{ 
+                      data: dato2,
+                      label: "Umidità (%)",
+                      borderColor: "#42adf4",
+                      fill: true,
+                      lineTension: 0
+                    }
+                  ]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: "Umidità (%)"
+                  },
+                  scales: {
+            yAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: "Umidità (%)"
+          }
+        }],
+    xAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: descrizioneX
+          }
+        }]
+
+      }
+                }
+              });
+              
+              new Chart(document.getElementById("line-chart2"), {
+                type: 'line',
+                data: {
+                  labels: labels,
+                  datasets: [{ 
+                      data: dato,
+                      label: descrizioneLabel,
+                      borderColor: colore,
+                      fill: true,
+                      lineTension: 0
+                    }
+                  ]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: titolo
+                  },
+                  scales: {
+            yAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: descrizioneY
+          }
+        }],
+    xAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: descrizioneX
+          }
+        }]
+
+      }
+                }
+              });
+              
+              
+}
+

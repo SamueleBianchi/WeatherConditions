@@ -95,8 +95,11 @@ require '../ChiamataAPI/impostaChiamata.php';
                                 <option value="Nuvolosità">Nuvolosità</option>
                                 <option value="Pressione">Pressione</option>
                                 <option value="VelVento">Velocità vento</option>
+                                <option value="umidprec">Umidità e precipitazioni</option>
             </select> 
             <div id="grafico"></div>
+            </div>
+            <div id="grafico2"></div>
             </div>
             </form>
     </div>';
